@@ -1,4 +1,4 @@
-name: skeleton-symfony
+name: alina.visions
 recipe: symfony
 config:
   webroot: web/public
@@ -9,9 +9,9 @@ config:
 services:
   database:
     portforward: 63004
-  appserver:
-    overrides:
-      environment:
-        # Support debugging CLI with XDEBUG.
-        PHP_IDE_CONFIG: "serverName=appserver"
-        XDEBUG_SESSION_START: lando
+#  appserver:
+#    overrides:
+#      environment:
+#        # Support debugging CLI with XDEBUG.
+#        PHP_IDE_CONFIG: "serverName=appserver"
+#        XDEBUG_SESSION_START: lando
