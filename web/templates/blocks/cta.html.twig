@@ -1,0 +1,16 @@
+{% extends 'blocks/base.html.twig' %}
+
+{% block body_block %}
+    <div class="section__content">
+        <h2 class="section__title">{{ attributes.data.title }}</h2>
+        <div class="section__text">
+            <p>{{ attributes.data.text }}</p>
+            <button class="button button-outline">Contact me</button>
+        </div>
+    </div>
+    {% if attributes.data.image is defined %}
+        <div class="section__image">
+            {{ looly_media(attributes.data.image) }}
+        </div>
+    {% endif %}
+{% endblock %}

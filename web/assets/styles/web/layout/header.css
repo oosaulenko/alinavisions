@@ -1,7 +1,5 @@
 header.header {
-    background-color: #fff;
-    color: #333;
-    padding: 12px 0;
+    padding: var(--sp2) 0;
 
     .header__wrapper {
         display: flex;
@@ -13,6 +11,12 @@ header.header {
 
     }
 
+    .header__right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
     .header__menu {
         .menu {
             list-style: none;
@@ -21,4 +25,12 @@ header.header {
             gap: 20px;
         }
     }
+}
+
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--color-title);
 }

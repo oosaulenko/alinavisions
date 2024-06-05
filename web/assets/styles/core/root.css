@@ -1,5 +1,5 @@
 :root {
-    --color-primary: #007bff;
+    --color-primary: #274035;
     --color-secondary: #6c757d;
     --color-success: #28a745;
     --color-info: #17a2b8;
@@ -7,21 +7,29 @@
     --color-danger: #dc3545;
     --color-light: #f8f9fa;
     --color-dark: #343a40;
-    --color-white: #fff;
     --color-black: #000;
+
+    --color-body: #F3F2F1;
+    --color-title: #274035;
+    --color-text: #706E67;
+    --color-bg: #D8D8D8;
+    --color-white: #fff;
+
+    --color-title-rgb: 39, 64, 53;
 
     /* Typography */
     --font-sans: "Roboto", sans-serif;
+    --font-serif: "Playfair Display", serif;
 
     /* Font size */
     --fs-xs: 12px;
     --fs-s: 14px;
     --fs-m: 16px;
-    --fs-l: 18px;
+    --fs-l: 19px;
     --fs-xl: 20px;
 
     /* Layout */
-    --container: 1176px;
+    --container: 1648px;
     --wrapper: 744px;
     --wrapper-lg: 792px;
     --gap: 24px;

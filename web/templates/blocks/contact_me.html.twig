@@ -1,0 +1,18 @@
+{% extends 'blocks/base.html.twig' %}
+
+{% block body_block %}
+    <div class="section__header">
+        {% if attributes.data.image is defined %}
+            <div class="section__image">
+                {{ looly_media(attributes.data.image) }}
+            </div>
+        {% endif %}
+        <div class="section__header_content">
+            <h2 class="section__title">{{ attributes.data.title }}</h2>
+        </div>
+    </div>
+
+    <div class="section__content">
+        {# FORM #}
+    </div>
+{% endblock %}
