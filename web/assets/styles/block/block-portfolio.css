@@ -1,0 +1,16 @@
+.section.section-portfolio {
+    padding: 60px 0;
+
+    .section__content {
+
+    }
+
+    .section__title {
+        margin-bottom: var(--sp2);
+    }
+
+    .section__text {
+        margin-left: 132px;
+        max-width: 500px;
+    }
+}

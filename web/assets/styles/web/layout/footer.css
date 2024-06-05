@@ -1,7 +1,5 @@
 footer.footer {
-    background-color: var(--color-dark);
-    color: var(--color-white);
-    padding: 12px 0;
+    padding: var(--sp3) 0;
 
     .footer__wrapper {
         display: flex;

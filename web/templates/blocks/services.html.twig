@@ -1,0 +1,23 @@
+{% extends 'blocks/base.html.twig' %}
+
+{% block body_block %}
+    <div class="section__content">
+        <h2 class="section__title">{{ attributes.data.title }}</h2>
+
+        {% if attributes.data.list is defined %}
+            <div class="section__list">
+                {% for item in attributes.data.list %}
+                    <div class="item">
+                        <a href="#">
+                            <div class="item__image">{{ looly_media(item.image) }}</div>
+                            <div class="item__content">
+                                <h5 class="item__title">{{ item.title }}</h5>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+{% endblock %}

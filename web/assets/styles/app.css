@@ -8,6 +8,7 @@
 
 /* Elements */
 @import url('web/element/logo.css');
+@import url('web/element/button.css');
 
 /* Layout */
 @import url('web/layout/container.css');
