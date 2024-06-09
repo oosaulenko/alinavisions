@@ -9,4 +9,5 @@ class SettingsDTO
     public array $siteLangs;
 
     public string $siteDefaultLang;
+    public string $textCopyright;
 }

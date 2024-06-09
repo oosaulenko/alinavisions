@@ -1,3 +1,13 @@
+html, body {
+    height: 100%;
+}
+
 body {
     background-color: var(--color-body);
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    margin-bottom: auto;
 }

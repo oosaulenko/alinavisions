@@ -1,7 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}404 Not Found{% endblock %}
+{% block title %}error404 Not Found{% endblock %}
 
 {% block body %}
-    404
+    <div class="error404">
+        <div class="container">
+            <div class="error404__wrapper">
+                <div class="error404__content">
+                    <h1 class="error404__title">{{ '404.title'|trans }}</h1>
+                    <div class="error404__text"><p>{{ '404.message'|trans }}</p></div>
+                    <div class="error404__actions">
+                        <a href="/" class="button button-primary">{{ '404.button'|trans }}</a>
+                    </div>
+                </div>
+                <div class="error404__image">
+
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

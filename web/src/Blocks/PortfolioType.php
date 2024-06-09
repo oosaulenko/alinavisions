@@ -5,6 +5,7 @@ namespace App\Blocks;
 use Adeliom\EasyGutenbergBundle\Blocks\AbstractBlockType;
 use App\Form\Type\BasicCollectionType;
 use App\Form\Type\DefaultSettingsBlockType;
+use App\Service\Portfolio\PortfolioServiceInterface;
 use App\Service\PostServiceInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
 use Oosaulenko\MediaBundle\Form\Type\MediaChoiceType;
@@ -15,7 +16,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class PortfolioType extends AbstractBlockType
 {
-    public function __construct(protected PostServiceInterface $postService) {}
+    public function __construct(protected PortfolioServiceInterface $portfolioService) {}
 
     public function buildBlock(FormBuilderInterface $builder, array $options): void
     {
@@ -75,6 +76,10 @@ class PortfolioType extends AbstractBlockType
 
     public function render(array $data): array
     {
-        return array_merge($data, []);
+        $list_portfolio = $this->portfolioService->list();
+
+        return array_merge($data, [
+            'items' => $list_portfolio
+        ]);
     }
 }

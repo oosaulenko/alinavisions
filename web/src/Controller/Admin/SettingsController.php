@@ -27,6 +27,7 @@ class SettingsController extends AbstractController
         $settingsDto->siteLogo = $this->optionService->getSetting('siteLogo') ? $this->optionService->getSetting('siteLogo')->getValue() : '';
         $settingsDto->siteLangs = $this->optionService->getSetting('siteLangs') ? json_decode($this->optionService->getSetting('siteLangs')->getValue(), true) : [];
         $settingsDto->siteDefaultLang = $this->optionService->getSetting('siteDefaultLang') ? $this->optionService->getSetting('siteDefaultLang')->getValue() : 'en';
+        $settingsDto->textCopyright = $this->optionService->getSetting('textCopyright') ? $this->optionService->getSetting('textCopyright')->getValue() : '';
 
         $form = $formFactory->create(SettingsType::class, $settingsDto);
         $form->handleRequest($request);
@@ -36,6 +37,7 @@ class SettingsController extends AbstractController
             $this->optionService->setSetting('siteLogo', $form->get('siteLogo')->getData());
             $this->optionService->setSetting('siteLangs', json_encode($form->get('siteLangs')->getData()));
             $this->optionService->setSetting('siteDefaultLang', $form->get('siteDefaultLang')->getData());
+            $this->optionService->setSetting('textCopyright', $form->get('textCopyright')->getData());
             $this->optionService->save();
             $this->addFlash('success', 'Settings updated successfully');
 

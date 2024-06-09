@@ -59,6 +59,18 @@ class SettingsType extends AbstractType
                 ],
                 'choices' => $this->languages->getLanguages(true),
             ])
+            ->add('textCopyright', TextType::class, [
+                'label' => 'Copyright text',
+                'row_attr' => [
+                    'class' => 'form-group',
+                ],
+                'label_attr' => [
+                    'class' => 'form-control-label',
+                ],
+                'attr' => [
+                    'class' => 'form-control',
+                ]
+            ])
         ;
     }
 }

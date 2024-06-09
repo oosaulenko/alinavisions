@@ -5,4 +5,17 @@
         <h2 class="section__title">{{ attributes.data.title }}</h2>
         <div class="section__text"><p>{{ attributes.data.text }}</p></div>
     </div>
+
+    <div class="portfolio">
+        {% for item in attributes.data.items %}
+            <div class="item-portfolio">
+                <div class="item__image">{{ looly_media(item.featureImage) }}</div>
+                <div class="item__content">
+                    <h5 class="item__title">{{ item.title }}</h5>
+                    <p class="portfolio__text">Lorem ipsum dolor sit amet.</p>
+                    <a href="#" class="button button-outline">More</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

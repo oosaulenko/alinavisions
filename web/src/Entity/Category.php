@@ -42,9 +42,16 @@ class Category
     #[ORM\Column(nullable: true)]
     private ?array $relative_locales = null;
 
+    /**
+     * @var Collection<int, Portfolio>
+     */
+    #[ORM\OneToMany(targetEntity: Portfolio::class, mappedBy: 'category')]
+    private Collection $portfolios;
+
     public function __construct()
     {
         $this->posts = new ArrayCollection();
+        $this->portfolios = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -198,5 +205,35 @@ class Category
         return [
             'view' => 'app_category_single',
         ];
+    }
+
+    /**
+     * @return Collection<int, Portfolio>
+     */
+    public function getPortfolios(): Collection
+    {
+        return $this->portfolios;
+    }
+
+    public function addPortfolio(Portfolio $portfolio): static
+    {
+        if (!$this->portfolios->contains($portfolio)) {
+            $this->portfolios->add($portfolio);
+            $portfolio->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removePortfolio(Portfolio $portfolio): static
+    {
+        if ($this->portfolios->removeElement($portfolio)) {
+            // set the owning side to null (unless already changed)
+            if ($portfolio->getCategory() === $this) {
+                $portfolio->setCategory(null);
+            }
+        }
+
+        return $this;
     }
 }

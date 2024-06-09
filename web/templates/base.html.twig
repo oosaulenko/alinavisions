@@ -15,7 +15,7 @@
 {#            {% block importmap %}{{ importmap('app') }}{% endblock %}#}
         {% endblock %}
     </head>
-    <body>
+    <body class="{{ body_class() }}">
         {% include 'web/layout/header.html.twig' %}
         <div class="wrapper">
             {% block body %}{% endblock %}
