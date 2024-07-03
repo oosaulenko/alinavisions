@@ -16,30 +16,6 @@ class PortfolioRepository extends ServiceEntityRepository implements PortfolioRe
         parent::__construct($registry, Portfolio::class);
     }
 
-    //    /**
-    //     * @return Portfolio[] Returns an array of Portfolio objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('p')
-    //            ->andWhere('p.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('p.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
-
-    //    public function findOneBySomeField($value): ?Portfolio
-    //    {
-    //        return $this->createQueryBuilder('p')
-    //            ->andWhere('p.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
     public function all(): array
     {
         return $this->findAll();
@@ -64,6 +40,16 @@ class PortfolioRepository extends ServiceEntityRepository implements PortfolioRe
         if (isset($params['category'])) {
             $qb->andWhere('p.category = :category')
                 ->setParameter('category', $params['category']);
+        }
+
+        if (isset($params['status'])) {
+            $qb->andWhere('p.status = :status')
+                ->setParameter('status', $params['status']);
+        }
+
+        if (isset($params['access'])) {
+            $qb->andWhere('p.access = :access')
+                ->setParameter('access', $params['access']);
         }
 
         return $qb->getQuery()->getResult();

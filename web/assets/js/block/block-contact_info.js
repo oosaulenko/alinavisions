@@ -1,0 +1,1 @@
+import "/assets/styles/block/block-contact_info.css";

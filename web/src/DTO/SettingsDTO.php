@@ -4,10 +4,11 @@ namespace App\DTO;
 
 class SettingsDTO
 {
-    public string $siteName;
-    public ?string $siteLogo;
-    public array $siteLangs;
+    public ?string $siteName = '';
+    public ?string $siteLogo = null;
+    public array $siteLangs = [];
+    public string $siteDefaultLang = 'en';
+    public ?string $textCopyright = '';
 
-    public string $siteDefaultLang;
-    public string $textCopyright;
+    public ?array $socials = [];
 }

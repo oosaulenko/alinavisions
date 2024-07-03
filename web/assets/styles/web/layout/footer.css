@@ -1,21 +1,19 @@
 footer.footer {
-    padding: var(--sp3) 0;
+    padding: var(--spacer-xl) 0;
+
+    @media (min-width: 768px) {
+        padding: var(--spacer-3xl) 0;
+    }
 
     .footer__wrapper {
         display: flex;
         align-items: center;
-    }
+        justify-content: space-between;
+        gap: var(--spacer);
+        flex-direction: column;
 
-    .footer__menu {
-        .menu {
-            list-style: none;
-
-            display: flex;
-            gap: 20px;
-
-            a {
-                color: var(--color-white);
-            }
+        @media (min-width: 576px) {
+            flex-direction: row;
         }
     }
 }

@@ -12,7 +12,7 @@
         .error404__wrapper {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            column-gap: var(--sp6);
+            column-gap: var(--spacer-6xl);
         }
 
         .error404__content {
@@ -23,11 +23,11 @@
             font-size: 200px;
             font-weight: bold;
             line-height: normal;
-            margin-bottom: var(--sp1);
+            margin-bottom: var(--spacer-xl);
         }
 
         .error404__text {
-            margin-bottom: var(--sp3);
+            margin-bottom: var(--spacer-3xl);
             max-width: 650px;
         }
 

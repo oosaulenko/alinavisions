@@ -3,32 +3,23 @@
 namespace App\Blocks;
 
 use Adeliom\EasyGutenbergBundle\Blocks\AbstractBlockType;
+use App\Form\Type\ButtonGroupType;
 use App\Form\Type\DefaultSettingsBlockType;
-use App\Form\Type\ServiceCollectionType;
-use App\Service\PostServiceInterface;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use App\Service\PackageServiceInterface;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class ServiceListType extends AbstractBlockType
 {
-    public function __construct(protected PostServiceInterface $postService) {}
+    public function __construct(protected PackageServiceInterface $packageService) {}
 
     public function buildBlock(FormBuilderInterface $builder, array $options): void
     {
         $builder->add('settings', DefaultSettingsBlockType::class, ['required' => false]);
 
         $builder->add('title', TextType::class, ['label' => 'Title']);
-        $builder->add('list', CollectionType::class, [
-            'label' => 'Services',
-            'entry_type' => ServiceCollectionType::class,
-            'attr' => [
-                'class' => 'field-collection field-collection-sortable',
-            ],
-            'allow_add' => true,
-            'allow_delete' => true,
-            'by_reference' => false
-        ]);
+        $builder->add('button', ButtonGroupType::class);
     }
 
     public static function getName(): string
@@ -71,9 +62,7 @@ class ServiceListType extends AbstractBlockType
     public static function configureAdminAssets(): array
     {
         return [
-            'js' => ['/bundles/oosaulenkomedia/js/media-bundle.js'],
             'css' => [
-                '/bundles/oosaulenkomedia/css/manager.css',
                 '/build/block-services.css'
             ],
         ];
@@ -81,6 +70,10 @@ class ServiceListType extends AbstractBlockType
 
     public function render(array $data): array
     {
-        return array_merge($data, []);
+        $list_packages = $this->packageService->list();
+
+        return array_merge($data, [
+            'items' => $list_packages
+        ]);
     }
 }

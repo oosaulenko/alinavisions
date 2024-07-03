@@ -1,0 +1,9 @@
+{% if link_to_download is defined and link_to_download is not empty %}
+    <div class="hello_bar">
+        <div class="container">
+            <a href="{{ path('api_portfolio_download', {'id': page.id}) }}" class="button button-secondary button--sm actionDownloadPhotos" download>
+                {{ 'entity.portfolio.download'|trans }}
+            </a>
+        </div>
+    </div>
+{% endif %}

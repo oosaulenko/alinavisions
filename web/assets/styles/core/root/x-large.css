@@ -1,0 +1,13 @@
+/* X-Large */
+@media (min-width: 1200px) {
+    :root {
+        /* Layout */
+        --container: 1140px;
+
+        /* Gutters */
+        --gutter: 24px;
+        --gutter-sm: 12px;
+        --gutter-lg: 40px;
+        --gutter-xl: 80px;
+    }
+}

@@ -1,16 +1,15 @@
 .section.section-portfolio {
-    padding: 60px 0;
 
     .section__content {
-        margin-bottom: var(--sp2);
-    }
-
-    .section__title {
-        margin-bottom: var(--sp2);
+        margin-bottom: var(--spacer-2xl);
     }
 
     .section__text {
-        margin-left: 132px;
+        margin-left: 0;
         max-width: 500px;
+
+        @media (min-width: 768px) {
+            margin-left: 132px;
+        }
     }
 }

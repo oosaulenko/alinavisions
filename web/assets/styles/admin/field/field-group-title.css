@@ -1,0 +1,32 @@
+.form-group--title {
+    border: 1px solid #f1f0ef;
+    padding: 12px;
+    box-shadow: var(--form-input-shadow);
+    border-radius: var(--bs-border-radius);
+    margin-bottom: 24px;
+
+    .form-widget {
+        .form-widget-compound {
+
+            & > div {
+                display: flex;
+                gap: 8px;
+                width: 100%;
+
+                .flex-fill {
+                    display: none;
+                }
+
+                .form-row {
+                    width: 100%;
+
+                    .form-group {
+                        padding: 0;
+                    }
+                }
+            }
+
+        }
+    }
+
+}

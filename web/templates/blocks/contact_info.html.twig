@@ -1,0 +1,22 @@
+{% extends 'blocks/base.html.twig' %}
+
+{% block body_block %}
+    <div class="section__list">
+        <div class="item">
+            <h3 class="item__title">Location</h3>
+            <p class="item__text">{{ attributes.data.location }}</p>
+        </div>
+        <div class="item">
+            <h3 class="item__title">Social media</h3>
+            <div class="item__text">
+                {% include 'web/component/socials.html.twig' %}
+            </div>
+        </div>
+        <div class="item">
+            <h3 class="item__title">Email</h3>
+            <p class="item__text">
+                <a href="mailto:{{ attributes.data.email }}">{{ attributes.data.email }}</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

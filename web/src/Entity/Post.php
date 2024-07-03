@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\LoolyMedia\Media;
 use App\Repository\PostRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -53,8 +54,8 @@ class Post
     #[ORM\Column(nullable: true)]
     private ?array $relative_locales = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?int $feature_image = null;
+    #[ORM\ManyToOne]
+    private ?Media $image = null;
 
     public function __construct()
     {
@@ -239,20 +240,20 @@ class Post
         ];
     }
 
-    public function getFeatureImage(): ?int
-    {
-        return $this->feature_image;
-    }
-
-    public function setFeatureImage(?int $feature_image): static
-    {
-        $this->feature_image = $feature_image;
-
-        return $this;
-    }
-
     public function _getSection(): string
     {
         return 'post';
+    }
+
+    public function getImage(): ?Media
+    {
+        return $this->image;
+    }
+
+    public function setImage(?Media $image): static
+    {
+        $this->image = $image;
+
+        return $this;
     }
 }

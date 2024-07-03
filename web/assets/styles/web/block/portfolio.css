@@ -1,6 +1,13 @@
 .portfolio {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: var(--sp3);
-    padding: 0 1rem;
+    grid-template-columns: var(--column);
+    grid-gap: var(--gutter-lg);
+
+    @media (min-width: 768px) {
+        grid-template-columns: var(--column-2);
+    }
+
+    @media (min-width: 992px) {
+        grid-template-columns: var(--column-3);
+    }
 }

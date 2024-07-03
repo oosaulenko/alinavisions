@@ -1,17 +1,24 @@
 <header class="header">
     <div class="container">
         <div class="header__wrapper">
-            <div class="header__logo">
-                <div class="logo">Alina Visions</div>
-{#                {{ site_logo() }}#}
+
+            <div class="header_left">
+                {% include 'web/component/socials.html.twig' %}
+            </div>
+
+            <div class="header__menu">
+                {{ menu('header') }}
             </div>
 
             <div class="header__right">
-                <div class="header__menu">
-                    {{ menu('header') }}
+                <div class="mobile_menu_button">
+                    <button class="menu_button" id="menu_button">
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
 
-                <div class="header_actions">
+                <div class="header__actions">
                     {% if page is defined %}
                         {{ language_switcher(page) }}
                     {% endif %}
@@ -20,3 +27,18 @@
         </div>
     </div>
 </header>
+
+<div class="mobile_menu">
+    <div class="container">
+        <div class="mobile_menu__inner">
+            <div class="mobile_menu__menu">
+                {{ menu('header') }}
+            </div>
+            <div class="mobile_menu__actions">
+                {% if page is defined %}
+                    {{ language_switcher(page) }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

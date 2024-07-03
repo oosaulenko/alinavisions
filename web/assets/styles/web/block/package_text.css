@@ -1,0 +1,23 @@
+.section.section-package_text {
+
+    .section__inner {
+        display: grid;
+        grid-template-columns: var(--column);
+        gap: var(--gutter-xl);
+
+        @media (min-width: 992px) {
+            grid-template-columns: var(--col1-4);
+        }
+    }
+
+    .section__list {
+        display: grid;
+        gap: var(--gutter-sm);
+
+        img {
+            width: 100%;
+        }
+
+    }
+
+}

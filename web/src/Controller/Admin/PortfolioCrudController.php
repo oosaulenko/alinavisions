@@ -2,16 +2,18 @@
 
 namespace App\Controller\Admin;
 
-use Adeliom\EasyGutenbergBundle\Admin\Field\GutenbergField;
 use App\Admin\Field\AccessField;
 use App\Admin\Field\DataField;
 use App\Admin\Field\StatusField;
 use App\Entity\Portfolio;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-use Oosaulenko\MediaBundle\Form\Type\MediaChoiceType;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Looly\Media\Admin\Field\LoolyGalleryField;
+use Looly\Media\Admin\Field\LoolyMediaField;
 
 class PortfolioCrudController extends BaseCrudController
 {
@@ -34,15 +36,18 @@ class PortfolioCrudController extends BaseCrudController
             })
         ;
 
-        if ($pageName === Crud::PAGE_INDEX) {
-//            $categoryField->formatValue(function ($value, Portfolio $entity) {
-//                return implode(',', $entity->getCategory()->map(function ($category) {
-//                    return $category->getTitle();
-//                })->toArray());
-//            });
-        }
-
         $fields[0] = FormField::addTab('General');
+
+        $fields[21] = TextEditorField::new('short_description')->onlyOnForms()->setColumns(12)->setTrixEditorConfig([
+            'blockAttributes' => [
+                'default' => ['tagName' => 'p'],
+            ],
+        ]);
+        $fields[22] = TextField::new('client')->setColumns(5);
+        $fields[23] = TextField::new('location')->setColumns(5);
+        $fields[24] = DateField::new('date')->setColumns(2);
+
+        $fields[25] = LoolyGalleryField::new('media');
 
         $fields[31] = FormField::addTab('Settings')->setIcon('fa fa-cog');
         $fields[38] = FormField::addColumn('col-lg-4 col-xl-4');
@@ -50,7 +55,7 @@ class PortfolioCrudController extends BaseCrudController
         $fields[41] = $categoryField;
         $fields[42] = StatusField::new('status');
         $fields[43] = AccessField::new('access');
-        $fields[44] = Field::new('feature_image')->setFormType(MediaChoiceType::class)->onlyOnForms();
+        $fields[44] = LoolyMediaField::new('image');
 
         $fields[49] = FormField::addFieldset();
 

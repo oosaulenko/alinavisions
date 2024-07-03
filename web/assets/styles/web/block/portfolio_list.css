@@ -1,0 +1,30 @@
+.section.section-portfolio_list {
+
+    .section__list {
+        column-count: 1;
+        column-gap: var(--gutter);
+
+        @media (min-width: 768px) {
+            column-count: 2;
+        }
+
+        @media (min-width: 992px) {
+            column-count: 3;
+        }
+
+        .section__item {
+            break-inside: avoid;
+            display: grid;
+            grid-template-rows: 1fr auto;
+            margin-bottom: var(--gutter);
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+        }
+    }
+
+}

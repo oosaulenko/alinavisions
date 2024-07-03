@@ -1,0 +1,9 @@
+/* Small */
+@media (min-width: 576px) {
+    :root {
+        /* Layout */
+        --container: 540px;
+
+        --font-size-lead: 1.25rem;
+    }
+}

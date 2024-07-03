@@ -1,0 +1,11 @@
+{% set socials = option('socials', false) %}
+
+{% if socials is not empty %}
+    <div class="socials">
+        {% for name, link in socials|filter((name, link) => name is not empty) %}
+            <a href="{{ link }}" class="item item--{{ name }}" target="_blank">
+                {{ name }}
+            </a>
+        {% endfor %}
+    </div>
+{% endif %}

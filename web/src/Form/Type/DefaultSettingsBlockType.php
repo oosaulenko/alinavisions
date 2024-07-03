@@ -28,7 +28,11 @@ class DefaultSettingsBlockType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'label' => 'Settings',
+            'required' => false,
+            'row_attr' => [
+                'class' => 'form-group--settings',
+            ]
         ]);
     }
 }

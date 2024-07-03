@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
+use App\Entity\LoolyMedia\Media;
 use App\Repository\PortfolioRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -33,9 +36,6 @@ class Portfolio
     #[ORM\Column(length: 120, nullable: true)]
     private ?string $client = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?int $feature_image = null;
-
     #[ORM\Column(length: 20, nullable: true)]
     private ?string $status = null;
 
@@ -56,6 +56,26 @@ class Portfolio
 
     #[ORM\Column(nullable: true)]
     private ?array $relative_locales = null;
+
+    /**
+     * @var Collection<int, Media>
+     */
+    #[ORM\ManyToMany(targetEntity: Media::class)]
+    private Collection $media;
+
+    #[ORM\ManyToOne]
+    private ?Media $image = null;
+
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $location = null;
+
+    #[ORM\Column(length: 10, nullable: true)]
+    private ?string $hash = null;
+
+    public function __construct()
+    {
+        $this->media = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -85,6 +105,12 @@ class Portfolio
 
         return $this;
     }
+
+    public function getExcerpt(): ?string
+    {
+        return substr($this->short_description, 0, 100) . '...';
+    }
+
 
     public function getShortDescription(): ?string
     {
@@ -130,18 +156,6 @@ class Portfolio
     public function setClient(?string $client): static
     {
         $this->client = $client;
-
-        return $this;
-    }
-
-    public function getFeatureImage(): ?int
-    {
-        return $this->feature_image;
-    }
-
-    public function setFeatureImage(?int $feature_image): static
-    {
-        $this->feature_image = $feature_image;
 
         return $this;
     }
@@ -213,6 +227,7 @@ class Portfolio
         return [
             'clone' => null,
             'view' => 'app_portfolio_single',
+            'download_link' => 'app_portfolio_single'
         ];
     }
 
@@ -253,6 +268,68 @@ class Portfolio
     public function setRelativeLocales(?array $relative_locales): static
     {
         $this->relative_locales = $relative_locales;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Media>
+     */
+    public function getMedia(): Collection
+    {
+        return $this->media;
+    }
+
+    public function addMedium(Media $medium): static
+    {
+        if (!$this->media->contains($medium)) {
+            $this->media->add($medium);
+        }
+
+        return $this;
+    }
+
+    public function removeMedium(Media $medium): static
+    {
+        $this->media->removeElement($medium);
+
+        return $this;
+    }
+
+    public function getImage(): ?Media
+    {
+        return $this->image;
+    }
+
+    public function setImage(?Media $image): static
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getLocation(): ?string
+    {
+        return $this->location;
+    }
+
+    public function setLocation(?string $location): static
+    {
+        $this->location = $location;
+
+        return $this;
+    }
+
+    public function getHash(): ?string
+    {
+        return $this->hash;
+    }
+
+    public function setHash(): static
+    {
+        if(!$this->hash) {
+            $this->hash = substr(uniqid(), 0, 10);
+        }
 
         return $this;
     }

@@ -23,6 +23,7 @@ Encore
     .addEntry('app', './assets/app.js')
     .addEntry('admin-field-block', './assets/js/admin/field/field-block.js')
     .addEntry('admin', './assets/js/admin/admin.js')
+    .addEntry('block-editor-container', './assets/js/admin/block-editor-container.js')
     .addEntry('block-hero', './assets/js/block/block-hero.js')
     .addEntry('block-list', './assets/js/block/block-list.js')
     .addEntry('block-archive_post', './assets/js/block/block-archive_post.js')
@@ -30,8 +31,10 @@ Encore
     .addEntry('block-portfolio', './assets/js/block/block-portfolio.js')
     .addEntry('block-services', './assets/js/block/block-services.js')
     .addEntry('block-contact_me', './assets/js/block/block-contact_me.js')
+    .addEntry('block-contact_info', './assets/js/block/block-contact_info.js')
     .addEntry('block-blog', './assets/js/block/block-blog.js')
     .addEntry('block-content', './assets/js/block/block-content.js')
+    .addEntry('block-image', './assets/js/block/block-image.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     // .enableStimulusBridge('./assets/controllers.json')

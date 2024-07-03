@@ -2,9 +2,8 @@
 
 namespace App\Twig;
 
-use App\Service\MenuServiceInterface;
 use App\Service\OptionServiceInterface;
-use Oosaulenko\MediaBundle\Service\MediaServiceInterface;
+use Looly\Media\Service\MediaServiceInterface;
 use Twig\Environment;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;

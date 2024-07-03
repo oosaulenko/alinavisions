@@ -47,6 +47,9 @@ class Page
     #[ORM\Column(nullable: true)]
     private ?array $relative_locales = null;
 
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $description = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -211,5 +214,17 @@ class Page
             'clone' => null,
             'view' => 'app_page_single',
         ];
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): static
+    {
+        $this->description = $description;
+
+        return $this;
     }
 }

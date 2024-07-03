@@ -31,4 +31,24 @@ class PortfolioService implements PortfolioServiceInterface
     {
         return $this->repository->list($params, $limit, $page);
     }
+
+    public function createZipArchive(Portfolio $portfolio): string
+    {
+        $zip = new \ZipArchive();
+        $zipName = $portfolio->getSlug() . '.zip';
+        $zipPath = sys_get_temp_dir() . '/' . $zipName;
+        $zip->open($zipPath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE);
+
+        foreach ($portfolio->getMedia() as $media) {
+            $zip->addFromString($media->getName(), file_get_contents($media->getFolder() . $media->getName()));
+        }
+
+//        foreach ($portfolio->getMedia() as $media) {
+//            $zip->addFromString($media->getName(), file_get_contents($media->getFolder()));
+//        }
+
+        $zip->close();
+
+        return $zipPath;
+    }
 }

@@ -31,4 +31,6 @@ interface PortfolioServiceInterface
      * @return Portfolio[]
      */
     public function list(array $params = [], int $limit = 10, int $page = 1): array;
+
+    public function createZipArchive(Portfolio $portfolio): string;
 }

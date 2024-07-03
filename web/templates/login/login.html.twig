@@ -1,29 +1,35 @@
 {% extends 'base_login.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block meta_title %}Log in{% endblock %}
 
 {% block body %}
-    <form method="post">
-        {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
+    <div class="login">
+        <form method="post" class="form">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
 
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+            {% if app.user %}
+                <div class="mb-3">
+                    You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            {% endif %}
+
+            <div class="form__group">
+                <label for="username" class="form__label">Email</label>
+                <input type="email" value="{{ last_username }}" name="_username" id="username" class="form__control" autocomplete="email" required>
             </div>
-        {% endif %}
 
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="username">Email</label>
-        <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus>
-        <label for="password">Password</label>
-        <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+            <div class="form__group">
+                <label for="password" class="form__label">Password</label>
+                <input type="password" name="_password" id="password" class="form__control" autocomplete="current-password" required>
+            </div>
 
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-        <button class="button" type="submit">
-            Sign in
-        </button>
-    </form>
+            <button class="button button-primary" type="submit">
+                Sign in
+            </button>
+        </form>
+    </div>
 {% endblock %}

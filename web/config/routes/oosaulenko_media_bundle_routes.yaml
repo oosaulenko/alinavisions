@@ -1,2 +1,0 @@
-oosaulenko_media_bundle_routes:
-    resource: '@OosaulenkoMediaBundle/config/routes.yaml'

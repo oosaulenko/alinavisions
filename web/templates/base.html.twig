@@ -16,6 +16,7 @@
         {% endblock %}
     </head>
     <body class="{{ body_class() }}">
+        {% include 'web/layout/bar.html.twig' %}
         {% include 'web/layout/header.html.twig' %}
         <div class="wrapper">
             {% block body %}{% endblock %}

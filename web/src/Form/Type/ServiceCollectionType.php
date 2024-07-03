@@ -2,14 +2,12 @@
 
 namespace App\Form\Type;
 
-use Oosaulenko\MediaBundle\Form\Type\MediaChoiceType;
+use Looly\Media\Form\Type\MediaType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ServiceCollectionType extends AbstractType
@@ -26,9 +24,7 @@ class ServiceCollectionType extends AbstractType
             ->add('link', TextareaType::class, [
                 'label' => 'Link',
             ])
-            ->add('image', MediaChoiceType::class, [
-                'label' => false,
-            ])
+            ->add('image', MediaType::class)
         ;
     }
 

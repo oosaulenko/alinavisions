@@ -7,8 +7,6 @@ use App\Form\Type\BasicCollectionType;
 use App\Form\Type\DefaultSettingsBlockType;
 use App\Service\PostServiceInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
-use Oosaulenko\MediaBundle\Form\Type\MediaChoiceType;
-use Oosaulenko\MediaBundle\Form\Type\MediaType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -75,9 +73,7 @@ class ListType extends AbstractBlockType
     public static function configureAdminAssets(): array
     {
         return [
-            'js' => ['/bundles/oosaulenkomedia/js/media-bundle.js'],
             'css' => [
-                '/bundles/oosaulenkomedia/css/manager.css',
                 '/build/block-list.css'
             ],
         ];

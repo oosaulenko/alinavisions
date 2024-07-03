@@ -1,0 +1,10 @@
+/* Medium */
+@media (min-width: 768px) {
+    :root {
+        /* Layout */
+        --container: 720px;
+
+        --font-size-input: 1.125rem;
+        --font-size-label: 1.188rem;
+    }
+}

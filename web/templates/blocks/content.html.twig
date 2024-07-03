@@ -1,0 +1,23 @@
+{% extends 'blocks/base.html.twig' %}
+
+{% block body_block %}
+    {% if attributes.data.title is defined and attributes.data.title %}
+        {{ title_field(attributes.data.title) }}
+    {% endif %}
+
+    <div class="section__columns columns--{{ attributes.data.columns }}">
+        <div class="section__left">
+            {% if attributes.data.subtitle is defined and attributes.data.subtitle %}
+                <h5 class="section__subtitle">
+                    {{ attributes.data.subtitle }}
+                </h5>
+            {% endif %}
+        </div>
+
+        <div class="section__right">
+            <div class="section__text lead">
+                {{ attributes.data.text }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
