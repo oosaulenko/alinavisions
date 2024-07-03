@@ -6,10 +6,6 @@
     -webkit-font-smoothing: antialiased;
 }
 
-html {
-    font-family: var(--font-sans);
-}
-
 html, body {
     width: 100%;
     margin: 0;
@@ -17,6 +13,11 @@ html, body {
     left: 0;
     top: 0;
     font-size: 100%;
+    font-family: var(--font-sans);
+
+    * {
+        font-family: inherit;
+    }
 }
 
 html.hidden,

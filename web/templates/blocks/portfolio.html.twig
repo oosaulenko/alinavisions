@@ -3,6 +3,17 @@
 {% block body_block %}
     <div class="section__content">
         <h2 class="section__title">{{ attributes.data.title }}</h2>
-        <div class="section__text"><p>{{ attributes.data.text }}</p></div>
+        <div class="section__text lead">{{ attributes.data.text }}</div>
     </div>
+
+    {% if attributes.data.items is defined %}
+        <div class="portfolio">
+            {% for item in attributes.data.items %}
+                <a href="{{ path('app_portfolio_single', {'slug': item.slug}) }}" class="item-portfolio">
+                    <div class="item__image">{{ looly_media(item.image.id) }}</div>
+                    <h5 class="item__title">{{ item.title }}</h5>
+                </a>
+            {% endfor %}
+        </div>
+    {% endif %}
 {% endblock %}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c60e2f3949bceb806c6a9648bfc1df5",
+    "content-hash": "dc6c3246cb19ebbc3dab183e885b6702",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1774,6 +1774,54 @@
             "time": "2024-05-08T13:53:15+00:00"
         },
         {
+            "name": "l00ly/media",
+            "version": "0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/l00ly/media.git",
+                "reference": "36965eb9d7efa7efb69f98ff7df34b5890ff360e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/l00ly/media/zipball/36965eb9d7efa7efb69f98ff7df34b5890ff360e",
+                "reference": "36965eb9d7efa7efb69f98ff7df34b5890ff360e",
+                "shasum": ""
+            },
+            "require": {
+                "easycorp/easyadmin-bundle": "^4.10",
+                "ext-gd": "*",
+                "intervention/image": "^3.6",
+                "symfony/framework-bundle": "^7.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Looly\\Media\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oleh Osaulenko",
+                    "email": "o.v.osaulenko@gmail.com"
+                }
+            ],
+            "description": "Media bundle for Symfony",
+            "keywords": [
+                "bundle",
+                "media",
+                "symfony"
+            ],
+            "support": {
+                "issues": "https://github.com/l00ly/media/issues",
+                "source": "https://github.com/l00ly/media/tree/0.1.2"
+            },
+            "time": "2024-06-30T16:47:14+00:00"
+        },
+        {
             "name": "ml/iri",
             "version": "1.1.4",
             "target-dir": "ML/IRI",
@@ -2039,53 +2087,6 @@
                 "source": "https://github.com/oosaulenko/looly-gutenberg/tree/1.0.9"
             },
             "time": "2024-05-04T08:04:08+00:00"
-        },
-        {
-            "name": "oosaulenko/media-bundle",
-            "version": "0.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/oosaulenko/media-bundle.git",
-                "reference": "172c4fed301ba6bcb5319b6d4ae4492f651541b2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oosaulenko/media-bundle/zipball/172c4fed301ba6bcb5319b6d4ae4492f651541b2",
-                "reference": "172c4fed301ba6bcb5319b6d4ae4492f651541b2",
-                "shasum": ""
-            },
-            "require": {
-                "ext-gd": "*",
-                "intervention/image": "^3.6",
-                "symfony/framework-bundle": "^7.0"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Oosaulenko\\MediaBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Oleh Osaulenko",
-                    "email": "o.v.osaulenko@gmail.com"
-                }
-            ],
-            "description": "Media bundle for Symfony",
-            "keywords": [
-                "bundle",
-                "media",
-                "symfony"
-            ],
-            "support": {
-                "issues": "https://github.com/oosaulenko/media-bundle/issues",
-                "source": "https://github.com/oosaulenko/media-bundle/tree/0.0.1"
-            },
-            "time": "2024-05-26T14:21:23+00:00"
         },
         {
             "name": "oscarotero/html-parser",
@@ -10921,7 +10922,8 @@
     "platform": {
         "php": ">=8.2",
         "ext-ctype": "*",
-        "ext-iconv": "*"
+        "ext-iconv": "*",
+        "ext-zip": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"

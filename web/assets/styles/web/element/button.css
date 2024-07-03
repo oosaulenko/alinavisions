@@ -1,5 +1,26 @@
 .button {
     cursor: pointer;
+    font: var(--font-s);
+    display: inline-block;
+    background-color: transparent;
+
+    &.button-primary {
+        border: 1px solid var(--color-primary);
+        text-transform: uppercase;
+        padding: var(--spacer-lg) var(--spacer-3xl);
+        transition: var(--transition);
+        color: var(--color-primary);
+
+        &:hover {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        &.button--sm {
+            padding: var(--spacer-sm) var(--spacer-xl);
+            font: var(--font-xs);
+        }
+    }
 
     &.button-outline {
         background-color: transparent;
@@ -42,6 +63,26 @@
             /*left: 0;*/
             /*top: 100%;*/
         }
+    }
+
+    &.button-secondary {
+        border: 1px solid var(--color-secondary);
+        text-transform: uppercase;
+        padding: var(--spacer-lg) var(--spacer-3xl);
+        transition: var(--transition);
+        color: var(--color-white);
+        background-color: transparent;
+
+        &:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+        }
+
+        &.button--sm {
+            padding: var(--spacer-sm) var(--spacer-xl);
+            font: var(--font-xs);
+        }
+
     }
 
 }

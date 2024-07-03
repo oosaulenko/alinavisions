@@ -1,68 +1,101 @@
-:root {
-    --color-primary: #274035;
-    --color-secondary: #6c757d;
-    --color-success: #28a745;
-    --color-info: #17a2b8;
-    --color-warning: #ffc107;
-    --color-danger: #dc3545;
-    --color-light: #f8f9fa;
-    --color-dark: #343a40;
-    --color-black: #000;
+@import url('root/extra-small.css'); /* Extra Small */
+@import url('root/small.css'); /* Small */
+@import url('root/medium.css'); /* Medium */
+@import url('root/large.css'); /* Large */
+@import url('root/x-large.css'); /* X-Large */
+@import url('root/2x-large.css'); /* 2X-Large */
+@import url('root/3x-large.css'); /* 3X-Large */
 
-    --color-body: #F3F2F1;
-    --color-title: #274035;
-    --color-text: #706E67;
-    --color-bg: #D8D8D8;
-    --color-white: #fff;
 
-    --color-title-rgb: 39, 64, 53;
 
-    /* Typography */
-    --font-sans: "Roboto", sans-serif;
-    --font-serif: "Playfair Display", serif;
 
-    /* Font size */
-    --fs-xs: 12px;
-    --fs-s: 14px;
-    --fs-m: 16px;
-    --fs-l: 19px;
-    --fs-xl: 20px;
+/*@media (max-width: 1400px) {*/
+/*    :root {*/
+/*        --gutter-sm: 12px;*/
+/*        --gutter-md: 24px;*/
+/*        --gutter-lg: 40px;*/
+/*        --gutter-xl: 80px;*/
+/*    }*/
+/*}*/
 
-    /* Layout */
-    --container: 1648px;
-    --wrapper: 744px;
-    --wrapper-lg: 792px;
-    --gap: 24px;
-    --sp: 16px;
+/*@media (max-width: 1200px) {*/
+/*    :root {*/
 
-    /* Spaces */
-    --sp03: 4px;
-    --sp02: 8px;
-    --sp01: 12px;
-    --sp0: 16px;
-    --sp1: 24px;
-    --sp2: 32px;
-    --sp3: 48px;
-    --sp4: 64px;
-    --sp5: 80px;
-    --sp6: 96px;
 
-    --sp-section: 56px;
+/*        --gutter-sm: 12px;*/
+/*        --gutter-md: 24px;*/
+/*        --gutter-lg: 40px;*/
+/*        --gutter-xl: 60px;*/
+/*    }*/
+/*}*/
 
-    /* Gaps */
-    --gap-sm: 12px;
-    --gap-md: 24px;
-    --gap-lg: 40px;
 
-    /* Radius */
-    --br-sm: 2px;
-    --br-md: 4px;
-    --br-lg: 8px;
-    --br-xl: 16px;
+/*@media (max-width: 1024px) {*/
+/*    :root {*/
+/*        --font-h1: bold 60px/normal var(--font-serif);*/
+/*        --font-h2: bold 32px/normal var(--font-serif);*/
+/*        --font-h3: bold 37px/normal var(--font-serif);*/
+/*        --font-h4: bold 30px/normal var(--font-serif);*/
+/*        --font-h5: bold 22px/normal var(--font-serif);*/
+/*        --font-h6: bold 19px/normal var(--font-serif);*/
 
-    /* Shadow */
-    --shadow-sm: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+/*        --gutter-sm: 12px;*/
+/*        --gutter-md: 24px;*/
+/*        --gutter-lg: 24px;*/
+/*        --gutter-xl: 40px;*/
+/*    }*/
+/*}*/
 
-    /* Default transition */
-    --transition: all 250ms ease 0s;
-}
+/*@media (max-width: 992px) {*/
+/*    :root {*/
+/*        --font-m: normal 15px/22px var(--font-sans);*/
+/*        --font-l: normal 17px/26px var(--font-sans);*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 768px) {*/
+/*    :root {*/
+/*        --font-m: normal 15px/22px var(--font-sans);*/
+/*        --font-l: normal 17px/26px var(--font-sans);*/
+
+/*        --font-h1: bold 36px/normal var(--font-serif);*/
+/*        --font-h2: bold 28px/normal var(--font-serif);*/
+/*        --font-h3: bold 24px/normal var(--font-serif);*/
+/*        --font-h4: bold 22px/normal var(--font-serif);*/
+/*        --font-h5: bold 20px/normal var(--font-serif);*/
+/*        --font-h6: bold 18px/normal var(--font-serif);*/
+
+/*        --font-label: bold 17px/normal var(--font-serif);*/
+
+/*        --col1: repeat(1, 1fr);*/
+/*        --col2: repeat(1, 1fr);*/
+/*        --col3: repeat(1, 1fr);*/
+/*        --col4: repeat(2, 1fr);*/
+/*        --col5: repeat(3, 1fr);*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 576px) {*/
+/*    :root {*/
+/*        --font-m: normal 14px/20px var(--font-sans);*/
+/*        --font-l: normal 16px/24px var(--font-sans);*/
+
+/*        --font-label: bold 16px/normal var(--font-serif);*/
+
+/*        !* Columns *!*/
+/*        --col1: repeat(1, 1fr);*/
+/*        --col2: repeat(1, 1fr);*/
+/*        --col3: repeat(1, 1fr);*/
+/*        --col4: repeat(2, 1fr);*/
+/*        --col5: repeat(3, 1fr);*/
+
+/*        --col1-2: 1fr;*/
+/*        --col4-3: 1fr;*/
+
+/*        !* Gaps *!*/
+/*        --gutter-sm: 8px;*/
+/*        --gutter-md: 12px;*/
+/*        --gutter-lg: 20px;*/
+/*        --gutter-xl: 32px;*/
+/*    }*/
+/*}*/

@@ -1,0 +1,19 @@
+.modal {
+    background-color: #fff;
+    padding: var(--spacer-lg);
+    width: 420px;
+    min-width: 320px;
+
+    .modal__title {
+        margin-bottom: var(--spacer-lg);
+        text-align: center;
+    }
+
+    @media (max-width: 576px) {
+        width: 100%;
+    }
+
+    .modal__content {
+        text-align: center;
+    }
+}

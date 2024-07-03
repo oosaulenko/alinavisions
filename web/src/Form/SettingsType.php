@@ -2,22 +2,26 @@
 
 namespace App\Form;
 
+use App\Form\DataTransformer\MediaTypeTransformer;
 use App\Utility\LanguagesInterface;
-use Oosaulenko\MediaBundle\Form\Type\MediaChoiceType;
+use Looly\Media\Form\Type\MediaType;
+use Looly\Media\Service\MediaServiceInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class SettingsType extends AbstractType
 {
     public function __construct(
-        protected LanguagesInterface $languages
+        protected LanguagesInterface $languages,
+        protected MediaServiceInterface $mediaService
     ) { }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $mediaTypeTransformer = new MediaTypeTransformer($this->mediaService);
+
         $builder
             ->add('siteName', TextType::class, [
                 'label' => 'Site name',
@@ -31,8 +35,14 @@ class SettingsType extends AbstractType
                     'class' => 'form-control',
                 ]
             ])
-            ->add('siteLogo', MediaChoiceType::class, [
+            ->add('siteLogo', MediaType::class, [
                 'label' => 'Logo',
+                'row_attr' => [
+                    'class' => 'form-group',
+                ],
+                'label_attr' => [
+                    'class' => 'form-control-label',
+                ],
             ])
             ->add('siteLangs', ChoiceType::class, [
                 'label' => 'Languages support',
@@ -59,6 +69,29 @@ class SettingsType extends AbstractType
                 ],
                 'choices' => $this->languages->getLanguages(true),
             ])
+            ->add('textCopyright', TextType::class, [
+                'label' => 'Copyright text',
+                'row_attr' => [
+                    'class' => 'form-group',
+                ],
+                'label_attr' => [
+                    'class' => 'form-control-label',
+                ],
+                'attr' => [
+                    'class' => 'form-control',
+                ]
+            ])
+            ->add('socials', SocialType::class, [
+                'label' => 'Socials',
+                'row_attr' => [
+                    'class' => 'form-group field-socials',
+                ],
+                'label_attr' => [
+                    'class' => 'form-control-label',
+                ],
+            ])
         ;
+
+        $builder->get('siteLogo')->addModelTransformer($mediaTypeTransformer);
     }
 }

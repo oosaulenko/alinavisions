@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <section class="section section-portfolio_hero">
+            <div class="section__wrapper">
+                <div class="container">
+                    <div class="section__inner">
+                        <div class="section__content">
+                            <h1 class="section__title display-2">{{ page.title }}</h1>
+                            <div class="section__text">{{ page.client }}</div>
+                        </div>
+                        <div class="section__image">
+                            {{ looly_media(page.image.id) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-portfolio_about">
+            <div class="section__wrapper">
+                <div class="container">
+                    <h2 class="section__title">About the project</h2>
+                    <div class="section__inner">
+                        <div class="section__left">
+                            {% if page.date is not empty %}
+                                <div class="section__card">
+                                    <h5 class="section__card-title">Date</h5>
+                                    <div class="section__card-text"><p>{{ page.date|date('d M, Y') }}</p></div>
+                                </div>
+                            {% endif %}
+
+                            {% if page.category %}
+                                <div class="section__card">
+                                    <h5 class="section__card-title">Category</h5>
+                                    <div class="section__card-text"><p>{{ page.category.title }}</p></div>
+                                </div>
+                            {% endif %}
+
+                            {% if page.location is not empty %}
+                                <div class="section__card">
+                                    <h5 class="section__card-title">Location</h5>
+                                    <div class="section__card-text"><p>{{ page.location }}</p></div>
+                                </div>
+                            {% endif %}
+
+                            {% if page.client is not empty %}
+                                <div class="section__card">
+                                    <h5 class="section__card-title">Client</h5>
+                                    <div class="section__card-text"><p>{{ page.client }}</p></div>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="section__content">
+                            <div class="section__text">{{ page.shortDescription|raw }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-portfolio_list">
+            <div class="section__wrapper">
+                <div class="container">
+                    <div class="section__list">
+                        {% for media in page.media %}
+                            <a href="/{{ media.getDesktop }}" class="section__item">
+                                {{ looly_media(media.id) }}
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

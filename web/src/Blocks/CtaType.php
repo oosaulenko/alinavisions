@@ -7,8 +7,7 @@ use App\Form\Type\ButtonGroupType;
 use App\Form\Type\DefaultSettingsBlockType;
 use App\Service\PostServiceInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
-use Oosaulenko\MediaBundle\Form\Type\MediaChoiceType;
-use Oosaulenko\MediaBundle\Form\Type\MediaType;
+use Looly\Media\Form\Type\MediaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -23,7 +22,7 @@ class CtaType extends AbstractBlockType
         $builder->add('title', TextType::class, ['label' => 'Title']);
         $builder->add('text', TextEditorType::class, ['label' => 'Text']);
         $builder->add('button', ButtonGroupType::class, ['label' => 'Button']);
-        $builder->add('image', MediaChoiceType::class, ['label' => false]);
+        $builder->add('image', MediaType::class);
     }
 
     public static function getName(): string
@@ -66,9 +65,7 @@ class CtaType extends AbstractBlockType
     public static function configureAdminAssets(): array
     {
         return [
-            'js' => ['/bundles/oosaulenkomedia/js/media-bundle.js'],
             'css' => [
-                '/bundles/oosaulenkomedia/css/manager.css',
                 '/build/block-cta.css'
             ],
         ];

@@ -1,0 +1,9 @@
+{% extends 'blocks/base.html.twig' %}
+
+{% block body_block %}
+    {% if attributes.data.image is defined %}
+        <div class="section__image">
+            {{ looly_media(attributes.data.image) }}
+        </div>
+    {% endif %}
+{% endblock %}

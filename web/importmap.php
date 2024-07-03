@@ -50,4 +50,24 @@ return [
     '@symfony/ux-vue' => [
         'path' => './vendor/symfony/ux-vue/assets/dist/loader.js',
     ],
+    'axios' => [
+        'version' => '1.7.2',
+    ],
+    'nice-select2' => [
+        'version' => '2.2.0',
+    ],
+    'slim-select' => [
+        'version' => '2.8.2',
+    ],
+    'slim-select/dist/slimselect.min.css' => [
+        'version' => '2.8.2',
+        'type' => 'css',
+    ],
+    'simplelightbox' => [
+        'version' => '2.14.3',
+    ],
+    'simplelightbox/dist/simple-lightbox.min.css' => [
+        'version' => '2.14.3',
+        'type' => 'css',
+    ],
 ];

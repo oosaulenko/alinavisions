@@ -1,0 +1,25 @@
+404:
+  title: 404
+  message: Oops! It seems this page has escaped like a moment missed on camera. Let’s head back to the gallery where every shot is a masterpiece!
+  button: Back to home
+footer:
+  copyright: AlinaVisions. All rights reserved
+block:
+  contact_me:
+    modal:
+      title: Thank you for reaching out!
+      message: I will get back to you as soon as possible.
+    form:
+      name:
+        label: Name
+        placeholder: Your name
+      email_phone:
+        label: Email or Phone
+        placeholder: Your email or phone number
+      message:
+        label: Message
+        placeholder: Your message here
+      submit: Send
+entity:
+  portfolio:
+    download: Download photos

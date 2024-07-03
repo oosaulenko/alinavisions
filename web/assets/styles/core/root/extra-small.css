@@ -1,0 +1,126 @@
+/* Extra small */
+:root {
+    /* Colors */
+    --color-primary: #274035;
+    --color-secondary: #706E67;
+    --color-success: #28a745;
+    --color-info: #17a2b8;
+    --color-warning: #ffc107;
+    --color-danger: #dc3545;
+    --color-light: #f8f9fa;
+    --color-dark: #343a40;
+    --color-black: #000;
+
+    --color-body: #F3F2F1;
+    --color-heading: var(--color-primary);
+    --color-text: var(--color-secondary);
+    --color-border: #979797;
+    --color-bg: #D8D8D8;
+    --color-white: #fff;
+
+    --color-title-rgb: 39, 64, 53;
+
+
+    /* Typography */
+    --font-sans: "Roboto", sans-serif;
+    --font-serif: "Playfair Display";
+
+
+    /* Font */
+    --body-font-size: 1rem;
+    --body-font-family: var(--font-sans);
+    --body-line-height: 1.5;
+
+    --font-size-h1: calc(1.375rem + 1.5vw);
+    --font-size-h2: calc(1.325rem + 0.9vw);
+    --font-size-h3: calc(1.3rem + 0.6vw);
+    --font-size-h4: calc(1.275rem + 0.3vw);
+    --font-size-h5: 1.25rem;
+    --font-size-h6: 1rem;
+
+    --font-size-display-1: calc(1.625rem + 4.5vw);
+    --font-size-display-2: calc(1.575rem + 3.9vw);
+    --font-size-display-3: calc(1.525rem + 3.3vw);
+    --font-size-display-4: calc(1.475rem + 2.7vw);
+    --font-size-display-5: calc(1.425rem + 2.1vw);
+    --font-size-display-6: calc(1.375rem + 1.5vw);
+
+    --font-size-lead: 1rem;
+    --font-size-input: 1rem;
+    --font-size-label: 1.063rem;
+
+    --font-xs: normal 14px/normal var(--font-sans);
+    --font-s: bold 15px/normal var(--font-sans);
+    --font-m: normal 17px/33px var(--font-sans);
+    --font-l: normal 19px/33px var(--font-sans);
+
+    /*--font-size-h1: */
+
+    --font-h1: bold 100px/normal var(--font-serif);
+    --font-h2: bold 47px/72px var(--font-serif);
+    --font-h3: bold 37px/normal var(--font-serif);
+    --font-h4: bold 30px/48px var(--font-serif);
+    --font-h5: bold 24px/36px var(--font-serif);
+    --font-h6: bold 19px/normal var(--font-serif);
+
+    --font-label: bold 19px/normal var(--font-serif);
+
+
+    /* Layout */
+    --container: 100%;
+    --container-gap: 24px;
+
+
+    /* Spacers */
+    --spacer: 12px;
+    --spacer-xs: 4px;
+    --spacer-sm: 8px;
+    --spacer-lg: 16px;
+    --spacer-xl: 24px;
+    --spacer-2xl: 32px;
+    --spacer-3xl: 48px;
+    --spacer-4xl: 64px;
+    --spacer-5xl: 80px;
+    --spacer-6xl: 96px;
+
+    --spacer-section: var(--spacer-3xl);
+
+    /* Columns */
+    --column: 1fr;
+    --column-2: repeat(2, 1fr);
+    --column-3: repeat(3, 1fr);
+    --column-4: repeat(4, 1fr);
+    --column-5: repeat(5, 1fr);
+
+    --col1: repeat(1, 1fr);
+    --col2: repeat(2, 1fr);
+    --col3: repeat(3, 1fr);
+    --col4: repeat(4, 1fr);
+    --col5: repeat(5, 1fr);
+
+    --col1-2: 1fr 2fr;
+    --col4-3: 4fr 3fr;
+    --col1-4: 2fr 5fr;
+
+
+    /* Gutters */
+    --gutter: 16px;
+    --gutter-sm: 8px;
+    --gutter-lg: 16px;
+    --gutter-xl: 32px;
+
+
+    /* Radius */
+    --border-radius: 4px;
+    --border-radius-sm: 2px;
+    --border-radius-lg: 8px;
+    --border-radius-xl: 16px;
+
+
+    /* Shadow */
+    --shadow-sm: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+
+
+    /* Default transition */
+    --transition: all 250ms ease 0s;
+}

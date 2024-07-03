@@ -1,0 +1,7 @@
+/* 3X-Large */
+@media (min-width: 1600px) {
+    :root {
+        /* Layout */
+        --container: 1520px;
+    }
+}

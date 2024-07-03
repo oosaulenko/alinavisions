@@ -1,5 +1,4 @@
 .section.section-list {
-    padding: 80px 0;
 
     .section__inner {
         display: flex;
@@ -8,7 +7,6 @@
     }
 
     .section__title {
-        margin-bottom: 20px;
         text-align: center;
     }
 

@@ -5,7 +5,9 @@ namespace App\Controller\Admin;
 use App\Entity\Category;
 use App\Entity\Menu;
 use App\Entity\Option;
+use App\Entity\Package;
 use App\Entity\Page;
+use App\Entity\Portfolio;
 use App\Entity\Post;
 use App\Entity\User;
 use App\Service\OptionServiceInterface;
@@ -43,8 +45,9 @@ class DashboardController extends AbstractDashboardController
     {
         return Assets::new()
             ->addWebpackEncoreEntry('admin')
-            ->addCssFile('/bundles/oosaulenkomedia/css/manager.css')
-            ->addJsFile('/bundles/oosaulenkomedia/js/media-bundle.js')
+            ->addWebpackEncoreEntry('block-editor-container')
+            ->addCssFile('/bundles/loolymedia/css/looly-media-bundle.css')
+            ->addJsFile('/bundles/loolymedia/js/looly-media-bundle.js')
             ;
     }
 
@@ -55,11 +58,13 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('<hr style="margin: 0;">');
         yield MenuItem::linkToCrud('Pages', 'fa fa-file-lines', Page::class);
         yield MenuItem::section('<hr style="margin: 0;">');
+        yield MenuItem::linkToCrud('Portfolio', 'fa fa-briefcase', Portfolio::class);
+        yield MenuItem::linkToCrud('Packages', 'fa fa-cube', Package::class);
         yield MenuItem::linkToCrud('Posts', 'fa fa-file-lines', Post::class);
         yield MenuItem::linkToCrud('Categories', 'fa fa-tags', Category::class);
 
         yield MenuItem::section('<hr style="margin: 0;">');
-        yield MenuItem::linkToRoute('Medias', 'fa fa-picture-o', 'oosaulenko_media_list');
+        yield MenuItem::linkToRoute('Medias', 'fa fa-picture-o', 'looly_media_list');
         yield MenuItem::linkToCrud('Menus', 'fa fa-bars-staggered', Menu::class);
         yield MenuItem::linkToRoute('Settings', 'fa fa-cog', 'admin_settings')->setPermission('ROLE_ADMIN');
 

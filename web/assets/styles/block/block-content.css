@@ -1,3 +1,19 @@
-.section.section-content {
+.section.section-text-content {
+
+    .section__columns {
+        &.columns--2 {
+            display: grid;
+            grid-template-columns: var(--column);
+            gap: var(--gutter-lg);
+
+            @media (min-width: 768px) {
+                grid-template-columns: var(--col1-2);
+            }
+
+            .section__text {
+
+            }
+        }
+    }
 
 }

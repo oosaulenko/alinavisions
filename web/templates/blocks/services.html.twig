@@ -4,18 +4,24 @@
     <div class="section__content">
         <h2 class="section__title">{{ attributes.data.title }}</h2>
 
-        {% if attributes.data.list is defined %}
+        {% if attributes.data.items is defined %}
             <div class="section__list">
-                {% for item in attributes.data.list %}
+                {% for package in attributes.data.items %}
                     <div class="item">
-                        <a href="#">
-                            <div class="item__image">{{ looly_media(item.image) }}</div>
+                        <a href="{{ path('app_package_single', {'slug': package.slug}) }}">
+                            <div class="item__image">{{ looly_media(package.image.id) }}</div>
                             <div class="item__content">
-                                <h5 class="item__title">{{ item.title }}</h5>
+                                <h5 class="item__title">{{ package.title }}</h5>
                             </div>
                         </a>
                     </div>
                 {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if attributes.data.button is defined and attributes.data.button.name is not empty %}
+            <div class="section__actions">
+                {{ button_field(attributes.data.button) }}
             </div>
         {% endif %}
 

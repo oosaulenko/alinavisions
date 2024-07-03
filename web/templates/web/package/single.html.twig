@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="page__title">{{ page.title }}</h1>
+
+        <section class="section section-package_text">
+            <div class="section__inner">
+                <div class="page__sidebar">
+                    <div class="section__list">
+                        {% for media in page.medias %}
+                            {{ looly_media(media.id) }}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="page__content">
+                    {{ page.excerpt|raw }}
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-portfolio">
+            <div class="container">
+                <h2 class="section__title">Related Portfolios</h2>
+                <div class="section__inner">
+                    <div class="portfolio">
+                        {% for item in portfolios %}
+                            <a href="{{ path('app_portfolio_single', {'slug': item.slug}) }}" class="item-portfolio">
+                                <div class="item__image">{{ looly_media(item.image.id) }}</div>
+                                <h5 class="item__title">{{ item.title }}</h5>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

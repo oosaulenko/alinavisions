@@ -1,12 +1,35 @@
 .section.section-contact-me {
-    padding: 60px 0;
 
     .section__header {
-        width: 100%;
-        height: 700px;
+        height: 240px;
         background-color: var(--color-bg);
         position: relative;
         z-index: 100;
+        margin-left: calc(var(--container-gap) * .5 * -1);
+        margin-right: calc(var(--container-gap) * .5 * -1);
+        width: calc(100% + var(--container-gap));
+
+        @media (min-width: 576px) {
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            height: 320px;
+        }
+
+        @media (min-width: 992px) {
+            height: 400px;
+        }
+
+        @media (min-width: 1200px) {
+            height: 520px;
+        }
+
+        @media (min-width: 1400px) {
+            height: 640px;
+        }
 
         .section__header_content {
             background-color: rgba(var(--color-title-rgb), .4);
@@ -29,20 +52,50 @@
     .section__image {
         width: 100%;
         height: 100%;
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
     }
 
     .section__content {
-        width: calc(100% - 130px - 130px);
-        height: 500px;
+        width: 100%;
+        margin: -60px auto 0;
         background-color: var(--color-body);
-        margin: -190px auto 190px;
         position: relative;
         z-index: 101;
+        padding: var(--spacer-xl);
+
+        @media (min-width: 576px) {
+            width: calc(100% - var(--container-gap));
+        }
+
+        @media (min-width: 768px) {
+            margin-top: -100px;
+        }
+
+        @media (min-width: 992px) {
+            margin-top: -120px;
+            width: calc(100% - var(--container-gap) * 4);
+            padding: var(--spacer-2xl) var(--spacer-3xl);
+        }
+
+        @media (min-width: 1200px) {
+            margin-top: -140px;
+            width: calc(100% - var(--container-gap) * 6);
+            padding: var(--spacer-3xl) var(--spacer-4xl);
+        }
+
+        @media (min-width: 1400px) {
+            margin-top: -180px;
+            width: calc(100% - var(--container-gap) * 10);
+            padding: var(--spacer-4xl) var(--spacer-6xl);
+        }
+
+        .form {
+
+            .button {
+                width: 230px;
+                margin: auto;
+                display: block;
+            }
+
+        }
     }
 }

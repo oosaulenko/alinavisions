@@ -9,15 +9,15 @@ class Languages implements LanguagesInterface
 {
 
     private array $langs = [
-        'en' => '🇬🇧 English',
-        'uk' => '🇺🇦 Ukraine',
-        'fr' => '🇫🇷 France',
-        'de' => '🇩🇪 Germany',
-        'es' => '🇪🇸 Spain',
-        'it' => '🇮🇹 Italy',
-        'pl' => '🇵🇱 Poland',
-        'ru' => '🖕 Russian',
-        'tr' => '🇹🇷 Turkey',
+        'en' => 'English',
+        'uk' => 'Українська',
+        'fr' => 'France',
+        'de' => 'Germany',
+        'es' => 'Spain',
+        'it' => 'Italy',
+        'pl' => 'Poland',
+        'ru' => 'Russian',
+        'tr' => 'Turkey',
     ];
 
     public function __construct(

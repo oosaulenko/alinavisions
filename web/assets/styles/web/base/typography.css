@@ -1,90 +1,93 @@
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-serif);
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
     margin: 0;
-    font-weight: 700;
+    font-weight: bold;
+    line-height: 1.2;
+    color: var(--color-heading);
+    font-family: var(--font-serif), serif;
 }
 
-h1, h2, h3 {
-    color: var(--color-title);
+h1, .h1 {
+    font-size: var(--font-size-h1);
 }
 
-h1, h2, h3, h4 {
-    word-wrap: break-word;
+h2, .h2 {
+    font-size: var(--font-size-h2);
 }
 
-h1, .display-h1 {
-    font-size: 100px;
-    line-height: normal;
-    font-weight: 700;
-
-    @media (max-width: 768px) {
-        font-size: 38px;
-        line-height: 48px;
-    }
-
-    @media (max-width: 478px) {
-        font-size: 36px;
-        line-height: 44px;
-    }
+h3, .h3 {
+    font-size: var(--font-size-h3);
 }
 
-h2, .display-h2 {
-    font-size: 47px;
-    line-height: 72px;
-    font-weight: 700;
-
-    @media (max-width: 768px) {
-        font-size: 32px;
-        line-height: 40px;
-    }
-
-    @media (max-width: 478px) {
-        font-size: 28px;
-        line-height: 36px;
-    }
+h4, .h4 {
+    font-size: var(--font-size-h4);
 }
 
-h3, .display-h3 {
-    font-size: 37px;
-    line-height: normal;
-    font-weight: 700;
-
-    @media (max-width: 768px) {
-        font-size: 28px;
-        line-height: 36px;
-    }
-
-    @media (max-width: 478px) {
-        font-size: 24px;
-        line-height: 32px;
-    }
+h5, .h5 {
+    font-size: var(--font-size-h5);
 }
 
-h4, .display-h4 {
-    font-size: 30px;
-    line-height: 48px;
-    font-weight: 700;
+h6, .h6 {
+    font-size: var(--font-size-h6);
 }
 
-h5, .display-h5 {
-    font-size: 24px;
-    line-height: 42px;
-    font-weight: 700;
+.display-1 {
+    font-size: var(--font-size-display-1);
 }
 
-h6, .display-h6 {
-    font-size: 19px;
-    line-height: normal;
-    font-weight: 700;
+.display-2 {
+    font-size: var(--font-size-display-2);
 }
+
+.display-3 {
+    font-size: var(--font-size-display-3);
+}
+
+.display-4 {
+    font-size: var(--font-size-display-4);
+}
+
+.display-5 {
+    font-size: var(--font-size-display-5);
+}
+
+.display-6 {
+    font-size: var(--font-size-display-6);
+}
+
+.lead {
+    font-size: var(--font-size-lead);
+    color: var(--color-text);
+}
+
+/*h1, .display-h1 {*/
+/*    font: var(--font-h1);*/
+/*}*/
+
+/*h2, .display-h2 {*/
+/*    font: var(--font-h2);*/
+/*}*/
+
+/*h3, .display-h3 {*/
+/*    font: var(--font-h3);*/
+/*}*/
+
+/*h4, .display-h4 {*/
+/*    font: var(--font-h4);*/
+/*}*/
+
+/*h5, .display-h5 {*/
+/*    font: var(--font-h5);*/
+/*}*/
+
+/*h6, .display-h6 {*/
+/*    font: var(--font-h6);*/
+/*}*/
 
 p {
-    font-family: var(--font-sans);
-    font-weight: normal;
-    font-size: var(--fs-l);
-    line-height: 33px;
-    margin: 0 0 var(--sp1);
+    font: var(--font-l);
+    margin: 0 0 var(--spacer-xl);
     color: var(--color-text);
 
     &:last-child {

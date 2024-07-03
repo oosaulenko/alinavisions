@@ -4,6 +4,7 @@ namespace App\Form\Type;
 
 use App\Form\JsonToStringTransformer;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -35,6 +36,14 @@ class DataType extends AbstractType
                 ],
                 'expanded' => true,
                 'multiple' => true,
+            ])
+            ->add('container', CheckboxType::class, [
+                'label' => 'Full width',
+                'required' => false,
+                'help' => 'Enable full width container for the page.',
+                'attr' => [
+                    'class' => 'form-check-input-switch'
+                ]
             ])
         ;
     }

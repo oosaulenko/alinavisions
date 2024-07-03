@@ -1,0 +1,8 @@
+.section.section-image {
+
+    .section__image {
+        img {
+            width: 100%;
+        }
+    }
+}

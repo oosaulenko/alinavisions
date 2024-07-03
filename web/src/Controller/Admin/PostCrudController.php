@@ -7,10 +7,9 @@ use App\Admin\Field\DataField;
 use App\Admin\Field\StatusField;
 use App\Entity\Post;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-use Oosaulenko\MediaBundle\Form\Type\MediaChoiceType;
+use Looly\Media\Admin\Field\LoolyMediaField;
 
 class PostCrudController extends BaseCrudController
 {
@@ -49,7 +48,7 @@ class PostCrudController extends BaseCrudController
         $fields[39] = FormField::addFieldset();
         $fields[41] = $categoryField;
         $fields[42] = StatusField::new('status');
-        $fields[43] = Field::new('feature_image')->setFormType(MediaChoiceType::class)->onlyOnForms();
+        $fields[43] = LoolyMediaField::new('image');
 
         $fields[49] = FormField::addFieldset();
 

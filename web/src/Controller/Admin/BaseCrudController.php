@@ -20,6 +20,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Dto\SearchDto;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Translation\LocaleSwitcher;
@@ -51,6 +52,7 @@ abstract class BaseCrudController extends AbstractCrudController
     {
         return parent::configureCrud($crud)
             ->addFormTheme('@EasyGutenberg/form/gutenberg_widget.html.twig')
+            ->addFormTheme('@looly_media/form/form_theme.html.twig')
             ->showEntityActionsInlined();
     }
 
@@ -60,6 +62,11 @@ abstract class BaseCrudController extends AbstractCrudController
         $fields = [];
 
         $fields[5] = TitleField::new('title');
+
+        if(method_exists($entity, 'getDescription')) {
+            $fields[7] = TextareaField::new('description')->setColumns(12);
+        }
+
         $fields[90] = DateField::new('updatedAt')
             ->setLabel('Updated')->onlyOnIndex()
             ->formatValue(function ($value) {
@@ -128,9 +135,21 @@ abstract class BaseCrudController extends AbstractCrudController
                         ->addCssClass('text-warning')
                         ->setIcon('fa fa-clone')
                         ->setHtmlAttributes(['target' => '_blank'])
-                        ->linkToCrudAction('cloneEntity');;
+                        ->linkToCrudAction('cloneEntity');
                     $actions->add(Crud::PAGE_INDEX, $action);
                     $actions->add(Crud::PAGE_EDIT, $action);
+                }
+
+                if($type == 'download_link') {
+                    $action = Action::new('download_link', 'Download link')
+                        ->addCssClass('text-primary')
+                        ->setIcon('fa fa-download')
+                        ->setHtmlAttributes(['target' => '_blank'])
+                        ->displayIf(fn ($entity) => $entity->getHash())
+                        ->linkToUrl(fn ($entity) =>
+                            '/portfolio/' . $entity->getSlug() . '?hash=' . $entity->getHash()
+                        );
+                    $actions->add(Crud::PAGE_INDEX, $action);
                 }
             }
         }
@@ -295,6 +314,10 @@ abstract class BaseCrudController extends AbstractCrudController
 
         if(method_exists($entityInstance, 'setUpdatedAtDefault')) {
             $entityInstance->setUpdatedAtDefault();
+        }
+
+        if(method_exists($entityInstance, 'setHash')) {
+            $entityInstance->setHash();
         }
 
         if(method_exists($entityInstance, 'getRelativeLocales')) {

@@ -1,0 +1,15 @@
+.page__title {
+    margin-bottom: var(--spacer-lg);
+
+    @media (min-width: 576px) {
+        margin-bottom: var(--spacer-xl);
+    }
+}
+
+.page__description {
+    max-width: 650px;
+
+    @media (min-width: 768px) {
+        margin-left: auto;
+    }
+}

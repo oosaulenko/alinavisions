@@ -1,0 +1,40 @@
+.section.section-portfolio_about {
+
+    .section__inner {
+        display: grid;
+        grid-template-columns: var(--column);
+        gap: var(--gutter-lg);
+        align-items: center;
+
+        @media (min-width: 1200px) {
+            grid-template-columns: 500px 1fr;
+        }
+    }
+
+    .section__left {
+        display: grid;
+        grid-template-columns: var(--column-2);
+        gap: var(--gutter-lg);
+
+        @media (min-width: 992px) {
+            grid-template-columns: var(--column-4);
+        }
+
+        @media (min-width: 1200px) {
+            grid-template-columns: var(--column-2);
+        }
+
+        .section__card {
+            display: flex;
+            flex-direction: column;
+            padding: var(--spacer-2xl) var(--spacer-lg);
+            background-color: #F9F9F9;
+            text-align: center;
+
+            .section__card-title {
+                margin-bottom: var(--spacer-sm);
+            }
+        }
+    }
+
+}

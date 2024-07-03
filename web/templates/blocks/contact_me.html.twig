@@ -13,6 +13,25 @@
     </div>
 
     <div class="section__content">
-        {# FORM #}
+        <form class="form formCallMeBack">
+            <div class="form__row">
+                <div class="form__group">
+                    <label class="form__label" for="name">{{ 'block.contact_me.form.name.label'|trans }} *</label>
+                    <input type="text" id="name" name="name" class="form__control" placeholder="{{ 'block.contact_me.form.name.placeholder'|trans }}">
+                    <div class="form__error"></div>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="email_phone">{{ 'block.contact_me.form.email_phone.label'|trans }} *</label>
+                    <input type="text" id="email_phone" name="phone" class="form__control" placeholder="{{ 'block.contact_me.form.email_phone.placeholder'|trans }}">
+                    <div class="form__error"></div>
+                </div>
+            </div>
+            <div class="form__group">
+                <label class="form__label" for="message">{{ 'block.contact_me.form.message.label'|trans }}</label>
+                <textarea name="message" id="message" class="form__control" placeholder="{{ 'block.contact_me.form.message.placeholder'|trans }}"></textarea>
+            </div>
+
+            <button type="submit" class="button button-primary">{{ 'block.contact_me.form.submit'|trans }}</button>
+        </form>
     </div>
 {% endblock %}
