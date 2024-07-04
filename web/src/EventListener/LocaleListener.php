@@ -10,7 +10,7 @@ class LocaleListener
 {
     private $defaultLocale;
 
-    public function __construct(string $defaultLocale = 'en')
+    public function __construct(string $defaultLocale = 'uk')
     {
         $this->defaultLocale = $defaultLocale;
     }

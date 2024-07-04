@@ -9,7 +9,7 @@ use Symfony\Component\Routing\RouterInterface;
 
 class LocaleRedirectListener
 {
-    private $defaultLocale = 'en';
+    private $defaultLocale = 'uk';
 
     public function __construct(
         protected RouterInterface $router,

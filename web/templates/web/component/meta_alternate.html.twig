@@ -1,0 +1,6 @@
+<meta property="og:locale" content="{{ locale }}">
+<link rel="canonical" href="{{ canonical }}">
+
+{% for lang, url in langs %}
+    <link rel="alternate" hreflang="{{ lang }}" href="{{ url }}">
+{% endfor %}

@@ -14,8 +14,8 @@ controllers:
             _locale: '%app.supported_locales%'
     type: attribute
     prefix:
-        en: ''
-        uk: '/uk'
+        en: '/en'
+        uk: ''
         fr: '/fr'
         de: '/de'
         es: '/es'

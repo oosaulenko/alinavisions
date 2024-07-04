@@ -16,7 +16,7 @@ interface PageRepositoryInterface
      * @param string $locale
      * @return Page|null
      */
-    public function findBySlug(string $slug, string $locale = 'en'): ?Page;
+    public function findBySlug(string $slug, string $locale = 'uk'): ?Page;
 
     /**
      * @param int $id
@@ -28,7 +28,7 @@ interface PageRepositoryInterface
      * @param string $locale
      * @return Page|null
      */
-    public function findMainPage(string $locale = 'en'): ?Page;
+    public function findMainPage(string $locale = 'uk'): ?Page;
 
     /**
      * @param string $locale

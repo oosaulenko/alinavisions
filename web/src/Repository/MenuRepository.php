@@ -16,7 +16,7 @@ class MenuRepository extends ServiceEntityRepository implements MenuRepositoryIn
         parent::__construct($registry, Menu::class);
     }
 
-    public function getMenu(string $location, string $locale = 'en'): ?Menu
+    public function getMenu(string $location, string $locale = 'uk'): ?Menu
     {
         return $this->findOneBy([
             'location' => $location,

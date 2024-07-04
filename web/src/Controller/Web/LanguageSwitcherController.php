@@ -19,12 +19,12 @@ class LanguageSwitcherController extends AbstractController
     #[Route('/language-switcher', name: 'language_switcher')]
     public function index(Request $request): Response
     {
-        $language = $request->request->get('language', 'en');
+        $language = $request->request->get('language', 'uk');
         $relative = json_decode($request->request->get('relative'), true);
 
         $repository = $this->entityManager->getRepository($request->request->get('entity_name', 'App\Entity\Page'));
 
-        $lang_code = ($language == 'en') ? '/' : '/'.$language.'/';
+        $lang_code = ($language == 'uk') ? '/' : '/'.$language.'/';
         $url = $lang_code;
 
         foreach ($relative as $locale) {

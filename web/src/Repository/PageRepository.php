@@ -24,7 +24,7 @@ class PageRepository extends ServiceEntityRepository implements PageRepositoryIn
         return self::findAll();
     }
 
-    public function findBySlug($slug, string $locale = 'en'): ?Page
+    public function findBySlug($slug, string $locale = 'uk'): ?Page
     {
         return self::findOneBy([
             'slug' => $slug,
@@ -37,7 +37,7 @@ class PageRepository extends ServiceEntityRepository implements PageRepositoryIn
         return self::findOneBy(['id' => $id]);
     }
 
-    public function findMainPage(string $locale = 'en'): ?Page
+    public function findMainPage(string $locale = 'uk'): ?Page
     {
         return self::findOneBy([
             'is_main' => true,
