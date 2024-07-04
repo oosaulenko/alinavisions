@@ -12,6 +12,6 @@ interface MenuRepositoryInterface
      * @param string $locale
      * @return ?Menu
      */
-    public function getMenu(string $location, string $locale = 'en'): ?Menu;
+    public function getMenu(string $location, string $locale = 'uk'): ?Menu;
 
 }

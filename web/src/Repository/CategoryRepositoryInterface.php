@@ -17,7 +17,7 @@ interface CategoryRepositoryInterface
      * @param string $locale
      * @return Category|null
      */
-    public function findBySlug(string $slug, string $locale = 'en'): ?Category;
+    public function findBySlug(string $slug, string $locale = 'uk'): ?Category;
 
     /**
      * @param int $id

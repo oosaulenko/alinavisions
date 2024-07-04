@@ -21,7 +21,7 @@ class CategoryRepository extends ServiceEntityRepository implements CategoryRepo
         return self::findAll();
     }
 
-    public function findBySlug(string $slug, string $locale = 'en'): ?Category
+    public function findBySlug(string $slug, string $locale = 'uk'): ?Category
     {
         return self::findOneBy([
             'slug' => $slug,
