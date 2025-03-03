@@ -39,10 +39,13 @@ abstract class BaseCrudController extends AbstractCrudController
         $qb = parent::createIndexQueryBuilder($searchDto, $entityDto, $fields, $filters);
         $locale = $this->localeSwitcher->getLocale();
 
-        if ($locale) {
-            $qb
-                ->andWhere('entity.locale = :locale')
-                ->setParameter('locale', $locale);
+
+        if(method_exists($entityDto->getFqcn(), 'getLocale')) {
+            if ($locale) {
+                $qb
+                    ->andWhere('entity.locale = :locale')
+                    ->setParameter('locale', $locale);
+            }
         }
 
         return $qb;

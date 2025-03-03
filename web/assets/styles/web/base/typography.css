@@ -61,30 +61,6 @@ h6, .h6 {
     color: var(--color-text);
 }
 
-/*h1, .display-h1 {*/
-/*    font: var(--font-h1);*/
-/*}*/
-
-/*h2, .display-h2 {*/
-/*    font: var(--font-h2);*/
-/*}*/
-
-/*h3, .display-h3 {*/
-/*    font: var(--font-h3);*/
-/*}*/
-
-/*h4, .display-h4 {*/
-/*    font: var(--font-h4);*/
-/*}*/
-
-/*h5, .display-h5 {*/
-/*    font: var(--font-h5);*/
-/*}*/
-
-/*h6, .display-h6 {*/
-/*    font: var(--font-h6);*/
-/*}*/
-
 p {
     font: var(--font-l);
     margin: 0 0 var(--spacer-xl);
@@ -92,6 +68,21 @@ p {
 
     &:last-child {
         margin-bottom: 0;
+    }
+}
+
+.page__content {
+    ul {
+        margin: 0;
+        list-style: disc;
+        font: var(--font-l);
+        color: var(--color-text);
+        padding-left: 16px;
+        margin-bottom: var(--spacer-xl);
+    }
+
+    p + ul {
+        margin-top: calc(var(--spacer-xl) * -1);
     }
 }
 

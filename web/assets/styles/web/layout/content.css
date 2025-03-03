@@ -9,6 +9,8 @@ body {
     background-color: var(--color-body);
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+    max-width: 1720px;
 
     &.is-overflow {
         overflow: hidden;
@@ -19,7 +21,7 @@ body {
     margin-bottom: auto;
 
     .section {
-        &:first-child {
+        &:first-of-type {
             padding-top: 0;
         }
 

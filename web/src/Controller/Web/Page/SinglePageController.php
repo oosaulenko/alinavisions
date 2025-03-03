@@ -2,7 +2,9 @@
 
 namespace App\Controller\Web\Page;
 
+use App\Form\CertificateType;
 use App\Service\PageServiceInterface;
+use App\Utility\AutoloadFormInterface;
 use App\Utility\DataEntityViewInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +17,7 @@ class SinglePageController extends AbstractController
     public function __construct(
         protected PageServiceInterface $pageService,
         protected DataEntityViewInterface $dataEntityView,
+        protected AutoloadFormInterface $autoloadForm,
         protected Environment $twig
     ) { }
 
@@ -35,7 +38,8 @@ class SinglePageController extends AbstractController
 
         return $this->render($template_name, array_merge(
             $this->dataEntityView->getMeta($page),
-            ['page' => $page]
+            ['page' => $page],
+            ['forms' => $this->autoloadForm->createForms()]
         ));
     }
 

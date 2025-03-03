@@ -5,14 +5,19 @@ namespace App\Blocks;
 use Adeliom\EasyGutenbergBundle\Blocks\AbstractBlockType;
 use App\Form\Type\ButtonGroupType;
 use App\Form\Type\DefaultSettingsBlockType;
+use App\Service\CategoryServiceInterface;
 use App\Service\Portfolio\PortfolioServiceInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class PortfolioType extends AbstractBlockType
 {
-    public function __construct(protected PortfolioServiceInterface $portfolioService) {}
+    public function __construct(
+        protected PortfolioServiceInterface $portfolioService,
+        protected CategoryServiceInterface $categoryService
+    ) {}
 
     public function buildBlock(FormBuilderInterface $builder, array $options): void
     {
@@ -28,6 +33,10 @@ class PortfolioType extends AbstractBlockType
         ]);
         $builder->add('limit', TextType::class, [
             'label' => 'Limit',
+            'required' => false,
+        ]);
+        $builder->add('filter', CheckboxType::class, [
+            'label' => 'Show filter',
             'required' => false,
         ]);
         $builder->add('button', ButtonGroupType::class);
@@ -83,13 +92,33 @@ class PortfolioType extends AbstractBlockType
     {
         $limit = (!empty($data['limit'])) ? $data['limit'] : 100;
 
+        if(isset($data['filter']) && $data['filter']) {
+            $categories = $this->categoryService->all();
+
+            if($categories) {
+                $categories = array_map(function($category) {
+                    return [
+                        'title' => $category->getTitle(),
+                        'slug' => $category->getSlug(),
+                    ];
+                }, $categories);
+            }
+
+            if(isset($_GET['category'])) {
+                $category = $this->categoryService->findBySlug($_GET['category']);
+            }
+        }
+
         $list_portfolio = $this->portfolioService->list([
+            'category' => $category ?? null,
             'status' => 'published',
-            'access' => 'public'
+            'access' => 'public',
+            'locale' => $_COOKIE['app_locale'] ?? 'uk',
         ], $limit);
 
         return array_merge($data, [
-            'items' => $list_portfolio
+            'items' => $list_portfolio,
+            'categories' => $categories ?? []
         ]);
     }
 }

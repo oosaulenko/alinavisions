@@ -7,6 +7,7 @@ use App\Form\Type\DefaultSettingsBlockType;
 use App\Form\Type\TitleGroupType;
 use App\Service\PostServiceInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
+use Looly\Media\Form\Type\MediaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,6 +22,7 @@ class ContentType extends AbstractBlockType
 
         $builder->add('title', TitleGroupType::class);
         $builder->add('subtitle', TextType::class, ['label' => 'Subtitle', 'required' => false]);
+        $builder->add('image', MediaType::class);
         $builder->add('columns', ChoiceType::class, [
             'label' => 'Columns',
             'choices' => [

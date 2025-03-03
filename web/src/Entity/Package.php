@@ -62,6 +62,9 @@ class Package
     #[ORM\ManyToOne]
     private ?Category $category = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?array $prices = null;
+
     public function __construct()
     {
         $this->medias = new ArrayCollection();
@@ -277,5 +280,34 @@ class Package
         $this->category = $category;
 
         return $this;
+    }
+
+    public function getPrices(): ?array
+    {
+        return $this->prices;
+    }
+
+    public function setPrices(?array $prices): static
+    {
+        $this->prices = $prices;
+
+        return $this;
+    }
+
+    public function getPriceMinMaxMain(): ?string {
+
+        if($this->prices) {
+            $prices = array_filter($this->prices, function($price) {
+                return $price['type'] === 'main';
+            });
+            $prices = array_column($prices, 'amount');
+
+            if(min($prices) === max($prices))
+                return min($prices);
+
+            return min($prices) . ' - ' . max($prices);
+        }
+
+        return null;
     }
 }

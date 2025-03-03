@@ -2,6 +2,7 @@
 
 namespace App\Controller\Web\Package;
 
+use App\Form\PackageType;
 use App\Service\PackageServiceInterface;
 use App\Service\Portfolio\PortfolioServiceInterface;
 use App\Utility\DataEntityViewInterface;
@@ -27,6 +28,11 @@ class SinglePackageController extends AbstractController
             throw $this->createNotFoundException();
         }
 
+        $form = $this->createForm(PackageType::class);
+        $form->setData([
+            'package_name' => $package->getTitle(),
+        ]);
+
         $portfolios = $this->portfolioService->list([
             'category' => $package->getCategory(),
         ], 3);
@@ -36,6 +42,7 @@ class SinglePackageController extends AbstractController
             [
                 'page' => $package,
                 'portfolios' => $portfolios,
+                'form' => $form,
             ],
         ));
     }

@@ -7,7 +7,10 @@ use App\Admin\Field\DataField;
 use App\Admin\Field\StatusField;
 use App\Entity\Portfolio;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -48,6 +51,8 @@ class PortfolioCrudController extends BaseCrudController
         $fields[24] = DateField::new('date')->setColumns(2);
 
         $fields[25] = LoolyGalleryField::new('media');
+        $fields[26] = AssociationField::new('photoshoot')->setCrudController(PhotoshootCrudController::class)->setColumns(12)->autocomplete();
+//        $fields[26] = AssociationField::new('photoshoot')->setColumns(12);
 
         $fields[31] = FormField::addTab('Settings')->setIcon('fa fa-cog');
         $fields[38] = FormField::addColumn('col-lg-4 col-xl-4');
@@ -55,7 +60,8 @@ class PortfolioCrudController extends BaseCrudController
         $fields[41] = $categoryField;
         $fields[42] = StatusField::new('status');
         $fields[43] = AccessField::new('access');
-        $fields[44] = LoolyMediaField::new('image');
+        $fields[44] = DateField::new('hast_at')->setLabel('Access for download')->setColumns(12);
+        $fields[45] = LoolyMediaField::new('image');
 
         $fields[49] = FormField::addFieldset();
 

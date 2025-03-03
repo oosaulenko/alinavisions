@@ -1,14 +1,6 @@
 .section.section-portfolio_hero {
 
     .section__inner {
-        display: grid;
-        grid-template-columns: var(--column);
-        gap: var(--gutter-xl);
-        align-items: center;
-
-        @media (min-width: 768px) {
-            grid-template-columns: var(--column-2);
-        }
     }
 
     .section__image {
@@ -28,20 +20,44 @@
 
     .section__content {
         color: var(--color-text);
-        max-width: 600px;
-
-        @media (min-width: 768px) {
-            order: 2;
-        }
 
         .section__title {
             transform: none;
             white-space: nowrap;
+        }
 
-            @media (min-width: 768px) {
-                transform: translateX(-50%);
-            }
+        .section__text {
+            max-width: 600px;
+        }
+
+        .section__info {
+            margin-top: var(--spacer-sm);
         }
     }
 
+    .section__cards {
+        display: grid;
+        grid-template-columns: var(--column-2);
+        gap: var(--gutter-lg);
+
+        @media (min-width: 992px) {
+            grid-template-columns: var(--column-4);
+        }
+
+        @media (min-width: 1200px) {
+            grid-template-columns: var(--column-4);
+        }
+    }
+
+    .section__card {
+        display: flex;
+        flex-direction: column;
+        padding: var(--spacer-2xl) var(--spacer-lg);
+        background-color: #F9F9F9;
+        text-align: center;
+
+        .section__card-title {
+            margin-bottom: var(--spacer-sm);
+        }
+    }
 }

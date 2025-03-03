@@ -37,6 +37,13 @@ class PackageRepository extends ServiceEntityRepository implements PackageReposi
             ->setMaxResults($limit)
             ->setFirstResult(($page - 1) * $limit);
 
+        if($params) {
+            foreach ($params as $key => $value) {
+                $qb->andWhere("p.$key = :$key")
+                    ->setParameter($key, $value);
+            }
+        }
+
         return $qb->getQuery()->getResult();
     }
 }

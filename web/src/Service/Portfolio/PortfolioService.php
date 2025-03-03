@@ -39,13 +39,11 @@ class PortfolioService implements PortfolioServiceInterface
         $zipPath = sys_get_temp_dir() . '/' . $zipName;
         $zip->open($zipPath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE);
 
-        foreach ($portfolio->getMedia() as $media) {
+        $photoshoot = $portfolio->getPhotoshoot();
+
+        foreach ($photoshoot->getMedia() as $media) {
             $zip->addFromString($media->getName(), file_get_contents($media->getFolder() . $media->getName()));
         }
-
-//        foreach ($portfolio->getMedia() as $media) {
-//            $zip->addFromString($media->getName(), file_get_contents($media->getFolder()));
-//        }
 
         $zip->close();
 

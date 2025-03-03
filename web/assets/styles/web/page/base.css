@@ -11,5 +11,51 @@
 
     @media (min-width: 768px) {
         margin-left: auto;
+        text-align: right;
     }
+}
+
+.page__header {
+    position: relative;
+    overflow: hidden;
+    height: 50vh;
+    margin-bottom: var(--spacer-3xl);
+
+    .page__image {
+        position: relative;
+        height: 100%;
+
+        &:before {
+            content: '';
+            background-color: rgba(var(--color-title-rgb), .4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+    }
+
+    .page__container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+    }
+
+    .page__title {
+        color: var(--color-white);
+    }
+
 }

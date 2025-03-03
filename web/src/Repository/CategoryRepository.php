@@ -18,7 +18,9 @@ class CategoryRepository extends ServiceEntityRepository implements CategoryRepo
 
     public function all(): array
     {
-        return self::findAll();
+        return self::findBy([
+            'locale' => $_COOKIE['locale'] ?? 'uk'
+        ]);
     }
 
     public function findBySlug(string $slug, string $locale = 'uk'): ?Category

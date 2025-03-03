@@ -1,9 +1,14 @@
 {% if link_to_download is defined and link_to_download is not empty %}
     <div class="hello_bar">
         <div class="container">
-            <a href="{{ path('api_portfolio_download', {'id': page.id}) }}" class="button button-secondary button--sm actionDownloadPhotos" download>
-                {{ 'entity.portfolio.download'|trans }}
-            </a>
+            <div class="hello_bar__inner">
+                <a href="{{ path('api_portfolio_download', {'id': page.id}) }}" class="button button-secondary button--sm actionDownloadPhotos" download>
+                    {{ 'entity.portfolio.download'|trans }}
+                </a>
+                <div class="hello_bar__text">
+                    Тимчасове посилання діє до {{ page.hastAt|date('d.m.Y') }}
+                </div>
+            </div>
         </div>
     </div>
 {% endif %}

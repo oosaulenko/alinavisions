@@ -1,16 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
-        <h1 class="page__title">{{ page.title }}</h1>
+    <div class="page__header">
+        <div class="page__image">
+            {{ page.image ? looly_media(page.image.id) }}
+        </div>
+        <div class="page__container">
+            <div class="container">
+                <h1 class="page__title">{{ page.title }}</h1>
+                <div class="page__actions">
+                    <button class="button button-white actionBookPackage">{{ 'action.book'|trans }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="container">
         <section class="section section-package_text">
             <div class="section__inner">
                 <div class="page__sidebar">
-                    <div class="section__list">
-                        {% for media in page.medias %}
-                            {{ looly_media(media.id) }}
-                        {% endfor %}
+                    <div class="section__prices prices">
+                        <h3 class="prices__title">{{ 'entity.package.title.price'|trans }}</h3>
+
+                        <div class="prices__list">
+                            {% for price in page.prices %}
+                                <div class="prices__item item">
+                                    <span class="item__name">{{ price.name }}</span>
+                                    <span class="item__amount">{{ price.amount }} {{ 'currency'|trans }}</span>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
 
@@ -20,9 +39,10 @@
             </div>
         </section>
 
+        {% if portfolios %}
         <section class="section section-portfolio">
             <div class="container">
-                <h2 class="section__title">Related Portfolios</h2>
+                <h2 class="section__title">{{ 'block.related_portfolio.title'|trans }}</h2>
                 <div class="section__inner">
                     <div class="portfolio">
                         {% for item in portfolios %}
@@ -35,5 +55,8 @@
                 </div>
             </div>
         </section>
+        {% endif %}
     </div>
+
+    {% include 'web/component/book_package.html.twig' %}
 {% endblock %}

@@ -11,4 +11,22 @@
     & + .header {
         margin-top: 50px;
     }
+
+    .hello_bar__inner {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .hello_bar__text {
+        color: var(--color-white);
+
+        @media (min-width: 992px) {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
 }

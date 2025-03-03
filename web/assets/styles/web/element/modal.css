@@ -17,3 +17,25 @@
         text-align: center;
     }
 }
+
+.modal-book_package, .modal-form_certificate {
+    padding-bottom: var(--spacer-xl);
+
+    @media min-width: 768px {
+        width: 520px;
+    }
+
+    .modal__form {
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .modal__content {
+        margin-bottom: var(--spacer-lg);
+    }
+
+    form textarea.form__control {
+        height: 100px;
+    }
+}

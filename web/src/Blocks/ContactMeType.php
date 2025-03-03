@@ -3,7 +3,6 @@
 namespace App\Blocks;
 
 use Adeliom\EasyGutenbergBundle\Blocks\AbstractBlockType;
-use App\Form\ContactType;
 use App\Form\Type\DefaultSettingsBlockType;
 use Looly\Media\Form\Type\MediaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;

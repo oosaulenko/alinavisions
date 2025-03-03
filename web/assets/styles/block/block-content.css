@@ -5,6 +5,7 @@
             display: grid;
             grid-template-columns: var(--column);
             gap: var(--gutter-lg);
+            align-items: center;
 
             @media (min-width: 768px) {
                 grid-template-columns: var(--col1-2);
@@ -14,6 +15,10 @@
 
             }
         }
+    }
+
+    .section__subtitle {
+        margin-bottom: var(--spacer-lg);
     }
 
 }

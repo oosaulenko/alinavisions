@@ -1,0 +1,9 @@
+<template class="templateModalFormCertificate">
+    <div class="modal modal-form_certificate">
+        <h3 class="modal__title">{{ 'certificate.title'|trans({}, 'form') }}</h3>
+        <div class="modal__content">{{ 'certificate.subtitle'|trans({}, 'form') }}</div>
+        <div class="modal__form">
+            {{ form(forms.formCertificate) }}
+        </div>
+    </div>
+</template>

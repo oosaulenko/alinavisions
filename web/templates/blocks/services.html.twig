@@ -9,9 +9,12 @@
                 {% for package in attributes.data.items %}
                     <div class="item">
                         <a href="{{ path('app_package_single', {'slug': package.slug}) }}">
-                            <div class="item__image">{{ looly_media(package.image.id) }}</div>
+                            <div class="item__image">{{ package.image ? looly_media(package.image.id) }}</div>
                             <div class="item__content">
-                                <h5 class="item__title">{{ package.title }}</h5>
+                                <h3 class="item__title">{{ package.title }}</h3>
+                                {% if package.priceMinMaxMain %}
+                                    <div class="item__prices">{{ package.priceMinMaxMain }} {{ 'currency'|trans }}</div>
+                                {% endif %}
                             </div>
                         </a>
                     </div>

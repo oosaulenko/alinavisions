@@ -72,6 +72,12 @@ class Portfolio
     #[ORM\Column(length: 10, nullable: true)]
     private ?string $hash = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $hast_at = null;
+
+    #[ORM\ManyToOne]
+    private ?Photoshoot $photoshoot = null;
+
     public function __construct()
     {
         $this->media = new ArrayCollection();
@@ -330,6 +336,30 @@ class Portfolio
         if(!$this->hash) {
             $this->hash = substr(uniqid(), 0, 10);
         }
+
+        return $this;
+    }
+
+    public function getHastAt(): ?\DateTimeImmutable
+    {
+        return $this->hast_at;
+    }
+
+    public function setHastAt(?\DateTimeImmutable $hast_at): static
+    {
+        $this->hast_at = $hast_at;
+
+        return $this;
+    }
+
+    public function getPhotoshoot(): ?Photoshoot
+    {
+        return $this->photoshoot;
+    }
+
+    public function setPhotoshoot(?Photoshoot $photoshoot): static
+    {
+        $this->photoshoot = $photoshoot;
 
         return $this;
     }

@@ -2,12 +2,16 @@
 
 {% block body_block %}
     <div class="section__content">
-        <h1 class="section__title display-2" data-text="{{ attributes.data.title }}">{{ attributes.data.title }}</h1>
+        <h1 class="section__title display-2" data-text="{{ attributes.data.title }}">{{ attributes.data.title|raw }}</h1>
         <div class="section__text lead">{{ attributes.data.text }}</div>
     </div>
     {% if attributes.data.image is defined %}
         <div class="section__image">
-            {{ looly_media(attributes.data.image) }}
+            <video muted="" loop="" autoplay="" playsinline="" style="width: 100%;">
+                <source src="/uploads/video_not_qualiti_1.mp4">
+            </video>
+
+{#            {{ looly_media(attributes.data.image) }}#}
         </div>
     {% endif %}
 {% endblock %}
