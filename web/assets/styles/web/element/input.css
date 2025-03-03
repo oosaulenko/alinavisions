@@ -32,6 +32,19 @@
                 border-color: var(--color-danger);
             }
         }
+
+        &.size--sm {
+            margin-bottom: var(--spacer-lg);
+
+            .form__label {
+                font-size: var(--font-size-label-sm);
+            }
+
+            .form__control {
+                padding: var(--spacer-sm) 0;
+                font-size: var(--font-size-input-sm);
+            }
+        }
     }
 
     .form__label {
@@ -63,6 +76,13 @@
         &:hover, &:focus {
             border-color: var(--color-primary);
         }
+    }
+
+    .form__message {
+        font: var(--font-xs);
+        color: var(--color-text);
+        margin-top: var(--spacer);
+        text-align: center;
     }
 
     .form__error {

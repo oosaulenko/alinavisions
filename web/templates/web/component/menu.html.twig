@@ -1,7 +1,9 @@
 <ul class="menu">
     {% for item in menu %}
         <li class="menu__item">
-            <a href="{{ item.url }}">{{ item.title }}</a>
+            <a href="{{ item.url }}"{{ (app.request.attributes.get('slug') in item.url) ? ' class="active"' }}>
+                {{ item.title }}
+            </a>
         </li>
     {% endfor %}
 </ul>

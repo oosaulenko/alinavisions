@@ -3,4 +3,35 @@
   message: Page not found
   button: Back to home
 footer:
-  copyright: AlinaVisions. All rights reserved
+  copyright: AlinaVisions. Всі права захищені.
+block:
+  contact_info:
+    location: Локація
+    social_media: Соціальні мережі
+    email: Email
+  related_portfolio:
+    title: Приклади фотосесій
+  contact_me:
+    modal:
+      title: Thank you for reaching out!
+      message: I will get back to you as soon as possible.
+    form:
+      name:
+        label: Ім'я
+        placeholder: Ваше ім'я
+      email_phone:
+        label: Email або телефон
+        placeholder: Ваш email або телефон
+      message:
+        label: Повідомлення
+        placeholder: Ваше повідомлення
+      submit: Відправити
+entity:
+  portfolio:
+    download: Завантажити фотографії
+  package:
+    title:
+      price: Ціни
+currency: грн
+action:
+  book: Забронювати

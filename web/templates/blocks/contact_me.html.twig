@@ -13,25 +13,25 @@
     </div>
 
     <div class="section__content">
-        <form class="form formCallMeBack">
+        <form class="form formValidation formCallMeBack" novalidate>
             <div class="form__row">
                 <div class="form__group">
                     <label class="form__label" for="name">{{ 'block.contact_me.form.name.label'|trans }} *</label>
-                    <input type="text" id="name" name="name" class="form__control" placeholder="{{ 'block.contact_me.form.name.placeholder'|trans }}">
-                    <div class="form__error"></div>
+                    <input type="text" id="name" name="contact[name]" class="form__control" data-message_required="{{ 'field.name.message_required'|trans({}, 'form') }}" required placeholder="{{ 'field.name.placeholder'|trans({}, 'form') }}">
                 </div>
                 <div class="form__group">
                     <label class="form__label" for="email_phone">{{ 'block.contact_me.form.email_phone.label'|trans }} *</label>
-                    <input type="text" id="email_phone" name="phone" class="form__control" placeholder="{{ 'block.contact_me.form.email_phone.placeholder'|trans }}">
-                    <div class="form__error"></div>
+                    <input type="text" id="email_phone" name="contact[phone]" class="form__control" data-validation="phone_email" data-message_validate="{{ 'field.phone.message_validate'|trans({}, 'form') }}" data-message_required="{{ 'field.phone.message_required'|trans({}, 'form') }}" required placeholder="{{ 'field.phone.placeholder'|trans({}, 'form') }}">
                 </div>
             </div>
             <div class="form__group">
                 <label class="form__label" for="message">{{ 'block.contact_me.form.message.label'|trans }}</label>
-                <textarea name="message" id="message" class="form__control" placeholder="{{ 'block.contact_me.form.message.placeholder'|trans }}"></textarea>
+                <textarea name="contact[message]" id="message" class="form__control" placeholder="{{ 'field.message.placeholder'|trans({}, 'form') }}"></textarea>
             </div>
 
-            <button type="submit" class="button button-primary">{{ 'block.contact_me.form.submit'|trans }}</button>
+            <button type="submit" class="button button-primary">{{ 'button.submit.label'|trans({}, 'form') }}</button>
+
+            <input type="hidden" id="contact__token" name="contact[_token]" value="01b53.pEpEHSCqDYYyY8ADG1dBw3Z4b7SGlFrCNqe-baJyKxs.4BUee3PBRtdlObAzcxIIrzobWf_e12KJBsrVN9g0WivyJA1MV-5nzUERtw">
         </form>
     </div>
 {% endblock %}

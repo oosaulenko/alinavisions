@@ -4,9 +4,9 @@ namespace App\Controller\Admin;
 
 use App\Entity\Category;
 use App\Entity\Menu;
-use App\Entity\Option;
 use App\Entity\Package;
 use App\Entity\Page;
+use App\Entity\Photoshoot;
 use App\Entity\Portfolio;
 use App\Entity\Post;
 use App\Entity\User;
@@ -59,6 +59,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Pages', 'fa fa-file-lines', Page::class);
         yield MenuItem::section('<hr style="margin: 0;">');
         yield MenuItem::linkToCrud('Portfolio', 'fa fa-briefcase', Portfolio::class);
+        yield MenuItem::linkToCrud('Photoshoots', 'fa fa-images', Photoshoot::class);
         yield MenuItem::linkToCrud('Packages', 'fa fa-cube', Package::class);
         yield MenuItem::linkToCrud('Posts', 'fa fa-file-lines', Post::class);
         yield MenuItem::linkToCrud('Categories', 'fa fa-tags', Category::class);

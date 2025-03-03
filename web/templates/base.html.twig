@@ -26,6 +26,12 @@
         <div class="wrapper">
             {% block body %}{% endblock %}
         </div>
+
         {% include 'web/layout/footer.html.twig' %}
+
+        {% if forms is defined %}
+            {% include 'web/modal/form_certificate.html.twig' %}
+            {% include 'web/modal/form_contact_me.html.twig' %}
+        {% endif %}
     </body>
 </html>

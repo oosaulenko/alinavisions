@@ -5,7 +5,9 @@ namespace App\Controller\Admin;
 use App\Admin\Field\DataField;
 use App\Admin\Field\StatusField;
 use App\Entity\Package;
+use App\Form\Type\PriceItemType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -43,8 +45,13 @@ class PackageCrudController extends BaseCrudController
 
         $fields[22] = TextField::new('price')->setColumns(6);
         $fields[23] = $categoryField;
+        $fields[24] = CollectionField::new('prices')
+            ->setEntryType(PriceItemType::class)
+            ->hideOnIndex()
+            ->addCssClass('field-collection-sortable')
+            ->setColumns(12);
 
-        $fields[24] = LoolyGalleryField::new('medias');
+        $fields[25] = LoolyGalleryField::new('medias');
 
         $fields[31] = FormField::addTab('Settings')->setIcon('fa fa-cog');
         $fields[38] = FormField::addColumn('col-lg-4 col-xl-4');

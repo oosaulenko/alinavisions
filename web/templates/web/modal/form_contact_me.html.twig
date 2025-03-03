@@ -1,0 +1,9 @@
+<template class="templateModalFormContactMe">
+    <div class="modal modal-form_contact_me">
+        <h3 class="modal__title">{{ 'contact_me.title'|trans({}, 'form') }}</h3>
+        <div class="modal__content">{{ 'contact_me.subtitle'|trans({}, 'form') }}</div>
+        <div class="modal__form">
+            {{ form(forms.formContact) }}
+        </div>
+    </div>
+</template>

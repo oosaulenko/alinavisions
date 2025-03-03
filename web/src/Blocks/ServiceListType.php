@@ -70,7 +70,9 @@ class ServiceListType extends AbstractBlockType
 
     public function render(array $data): array
     {
-        $list_packages = $this->packageService->list();
+        $list_packages = $this->packageService->list([
+            'locale' => $_COOKIE['app_locale'] ?? 'uk',
+        ]);
 
         return array_merge($data, [
             'items' => $list_packages

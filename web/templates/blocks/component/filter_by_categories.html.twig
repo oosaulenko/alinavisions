@@ -1,0 +1,15 @@
+<div class="tabs">
+    <div class="tabs__nav">
+        <a href="{{ path(app.request.attributes.get('_route'), { 'slug': app.request.attributes.get('slug') }) }}"
+           class="tab lead{{ app.request.get('category') == null ? ' active' }}">
+            Всі
+        </a>
+
+        {% for category in list %}
+            <a href="{{ path(app.request.attributes.get('_route'), { 'slug': app.request.attributes.get('slug'), 'category': category.slug }) }}"
+               class="tab lead{{ (app.request.get('category') == category.slug) ? ' active' }}">
+                {{ category.title }}
+            </a>
+        {% endfor %}
+    </div>
+</div>

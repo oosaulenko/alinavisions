@@ -8,22 +8,16 @@
                     <div class="section__inner">
                         <div class="section__content">
                             <h1 class="section__title display-2">{{ page.title }}</h1>
-                            <div class="section__text">{{ page.client }}</div>
+                            <div class="section__text">
+                                {{ page.shortDescription|raw }}
+                            </div>
+                            {% if page.location is not empty %}
+                                <div class="section__info">
+                                    <p>Локація: {{ page.location }}</p>
+                                </div>
+                            {% endif %}
                         </div>
-                        <div class="section__image">
-                            {{ looly_media(page.image.id) }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section section-portfolio_about">
-            <div class="section__wrapper">
-                <div class="container">
-                    <h2 class="section__title">About the project</h2>
-                    <div class="section__inner">
-                        <div class="section__left">
+                        <div class="section__cards" style="display: none;">
                             {% if page.date is not empty %}
                                 <div class="section__card">
                                     <h5 class="section__card-title">Date</h5>
@@ -52,9 +46,6 @@
                                 </div>
                             {% endif %}
                         </div>
-                        <div class="section__content">
-                            <div class="section__text">{{ page.shortDescription|raw }}</div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -64,14 +55,37 @@
             <div class="section__wrapper">
                 <div class="container">
                     <div class="section__list">
-                        {% for media in page.media %}
-                            <a href="/{{ media.getDesktop }}" class="section__item">
-                                {{ looly_media(media.id) }}
-                            </a>
-                        {% endfor %}
+                        {% if app.request.get('hash') is empty %}
+                            {% for media in page.media %}
+                                <a href="/{{ media.getDesktop }}" class="section__item">
+                                    {{ looly_media(media.id) }}
+                                </a>
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if app.request.get('hash') is not empty %}
+                            {% for media in page.photoshoot.media %}
+                                <a href="/{{ media.getDesktop }}" class="section__item">
+                                    {{ looly_media(media.id) }}
+                                </a>
+                            {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </section>
+
+        {% if app.request.get('hash') is empty %}
+            <section class="section section-contact-me-small">
+                <div class="container">
+                    <div class="section__inner">
+                        <h3 class="section__title">Готові забронювати зйомку або маєте питання?</h3>
+                        <div class="section__actions">
+                            <a href="#ModalFormContactMe" class="button button-white">Написати мені</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endif %}
     </div>
 {% endblock %}

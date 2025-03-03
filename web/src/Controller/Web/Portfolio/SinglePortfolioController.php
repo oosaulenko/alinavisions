@@ -3,6 +3,7 @@
 namespace App\Controller\Web\Portfolio;
 
 use App\Service\Portfolio\PortfolioServiceInterface;
+use App\Utility\AutoloadFormInterface;
 use App\Utility\DataEntityViewInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,6 +16,7 @@ class SinglePortfolioController extends AbstractController
     public function __construct(
         protected PortfolioServiceInterface $portfolioService,
         protected DataEntityViewInterface $dataEntityView,
+        protected AutoloadFormInterface $autoloadForm,
     ) { }
 
     #[Route('/portfolio/{slug}', name: 'app_portfolio_single')]
@@ -38,12 +40,17 @@ class SinglePortfolioController extends AbstractController
             $linkToDownload = true;
         }
 
+        if ($portfolio->getHastAt() < new \DateTimeImmutable()) {
+            $linkToDownload = false;
+        }
+
         return $this->render('web/portfolio/single.html.twig', array_merge(
             $this->dataEntityView->getMeta($portfolio),
             [
                 'page' => $portfolio,
                 'link_to_download' => $linkToDownload ?? false
             ],
+            ['forms' => $this->autoloadForm->createForms()]
         ));
     }
 }

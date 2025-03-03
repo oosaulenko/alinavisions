@@ -1,0 +1,19 @@
+field:
+  name:
+    label: Names
+    placeholder: Please enter your name
+    message_required: The name field is required
+  phone:
+    label: Phone or Email
+    placeholder: Please enter your phone number
+    message_required: The phone field is required
+    message_validate: The phone or email field is invalid
+  message:
+    label: Message
+    placeholder: Please enter your message
+button:
+  submit:
+    label: Submit
+message:
+  success: Your message has been sent successfully
+  error: An error occurred while sending your message

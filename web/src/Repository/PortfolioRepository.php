@@ -37,19 +37,13 @@ class PortfolioRepository extends ServiceEntityRepository implements PortfolioRe
             ->setMaxResults($limit)
             ->setFirstResult(($page - 1) * $limit);
 
-        if (isset($params['category'])) {
-            $qb->andWhere('p.category = :category')
-                ->setParameter('category', $params['category']);
-        }
+        if($params) {
+            foreach ($params as $key => $value) {
+                if(!$value) continue;
 
-        if (isset($params['status'])) {
-            $qb->andWhere('p.status = :status')
-                ->setParameter('status', $params['status']);
-        }
-
-        if (isset($params['access'])) {
-            $qb->andWhere('p.access = :access')
-                ->setParameter('access', $params['access']);
+                $qb->andWhere("p.$key = :$key")
+                    ->setParameter($key, $value);
+            }
         }
 
         return $qb->getQuery()->getResult();

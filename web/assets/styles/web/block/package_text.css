@@ -20,4 +20,33 @@
 
     }
 
+    .prices {
+
+        .prices__title {
+            margin-bottom: var(--spacer-sm);
+        }
+
+
+        .prices__list {
+
+            .item {
+                border-bottom: 1px solid var(--color-border);
+                display: flex;
+                justify-content: space-between;
+                padding: var(--spacer-sm) 0;
+                color: var(--color-text);
+
+                .item__name {
+
+                }
+
+                .item__amount {
+                    font-weight: 700;
+                }
+            }
+
+        }
+
+    }
+
 }

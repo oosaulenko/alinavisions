@@ -14,7 +14,8 @@ body.hidden-scroll {
     right: 0;
     top: 0;
     bottom: 0;
-    background: var(--color-primary);
+    /*background: var(--color-primary);*/
+    background: var(--color-black);
     display: none;
     z-index: 7500;
 }

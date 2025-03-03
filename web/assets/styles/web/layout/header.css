@@ -55,7 +55,7 @@ header.header {
                         right: 0;
                     }
 
-                    &:hover {
+                    &:hover, &.active {
 
                         &:before, &:after {
                             width: 100%;
@@ -152,6 +152,7 @@ header.header {
     opacity: 0;
     visibility: hidden;
     transition: var(--transition);
+    display: flex;
 
     &.is-show {
         opacity: 1;

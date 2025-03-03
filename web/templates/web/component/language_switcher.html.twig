@@ -3,7 +3,8 @@
     <input type="hidden" name="entity_name" value="{{ entity_name }}">
     <select name="language" onchange="this.form.submit()">
         {% for code, lang in langs %}
-            <option value="{{ code }}" {{ app.request.locale == code ? 'selected' : '' }}>
+            <option value="{{ code }}" data-html="<img src='{{ asset('icon/flag/' ~ code ~ '.svg') }}'> {{ lang }}" {{ app.request.locale == code ? 'selected' : '' }}>
+                <img src="{{ asset('icon/flag/ua.svg') }}" alt="{{ lang }}">
                 {{ lang }}
             </option>
         {% endfor %}
