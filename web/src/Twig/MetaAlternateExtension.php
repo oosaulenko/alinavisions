@@ -37,10 +37,12 @@ class MetaAlternateExtension extends AbstractExtension
             $slug = (method_exists($entity, 'isMain') && $entity->isMain()) ? '' : '/' . $entity->getSlug();
             $lang = ($locale == 'uk') ? '' : '/' . $locale;
 
+            $host = $_SERVER['HTTP_X_FORWARDED_HOST'] ?? $_SERVER['HTTP_HOST'];
+
             if(method_exists($entity, '_getSection')) {
-                $langs[$locale] = 'https://' . $_SERVER['HTTP_X_FORWARDED_HOST'] . $lang . '/' . $entity->_getSection() . $slug . '/';
+                $langs[$locale] = 'https://' . $host . $lang . '/' . $entity->_getSection() . $slug . '/';
             } else {
-                $langs[$locale] = 'https://' . $_SERVER['HTTP_X_FORWARDED_HOST'] . $lang . $slug . '/';
+                $langs[$locale] = 'https://' . $host . $lang . $slug . '/';
             }
         }
 
