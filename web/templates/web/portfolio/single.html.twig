@@ -57,7 +57,7 @@
                     <div class="section__list">
                         {% if app.request.get('hash') is empty %}
                             {% for media in page.media %}
-                                <a href="/{{ media.getDesktop }}" class="section__item">
+                                <a href="{{ media.getDesktop }}" class="section__item">
                                     {{ looly_media(media.id) }}
                                 </a>
                             {% endfor %}
@@ -65,7 +65,7 @@
 
                         {% if app.request.get('hash') is not empty %}
                             {% for media in page.photoshoot.media %}
-                                <a href="/{{ media.getDesktop }}" class="section__item">
+                                <a href="{{ media.getDesktop }}" class="section__item">
                                     {{ looly_media(media.id) }}
                                 </a>
                             {% endfor %}
