@@ -1950,16 +1950,16 @@
         },
         {
             "name": "l00ly/media",
-            "version": "0.1.5",
+            "version": "0.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/l00ly/media.git",
-                "reference": "3fdab84f7830cda9b35e887685bcea508e4521c9"
+                "reference": "2071c62a76eb4744cb7913be7ebc5ac2bb9dfad2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l00ly/media/zipball/3fdab84f7830cda9b35e887685bcea508e4521c9",
-                "reference": "3fdab84f7830cda9b35e887685bcea508e4521c9",
+                "url": "https://api.github.com/repos/l00ly/media/zipball/2071c62a76eb4744cb7913be7ebc5ac2bb9dfad2",
+                "reference": "2071c62a76eb4744cb7913be7ebc5ac2bb9dfad2",
                 "shasum": ""
             },
             "require": {
@@ -1992,9 +1992,9 @@
             ],
             "support": {
                 "issues": "https://github.com/l00ly/media/issues",
-                "source": "https://github.com/l00ly/media/tree/0.1.5"
+                "source": "https://github.com/l00ly/media/tree/0.1.6"
             },
-            "time": "2024-07-04T14:52:04+00:00"
+            "time": "2025-03-08T22:42:24+00:00"
         },
         {
             "name": "ml/iri",
