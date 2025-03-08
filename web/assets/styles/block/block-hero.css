@@ -55,4 +55,8 @@
             min-width: 100%;
         }
     }
+
+    .section__actions {
+        text-align: left;
+    }
 }

@@ -46,6 +46,8 @@
 
         .section__title {
             color: var(--color-white);
+            text-align: center;
+            padding: 0 var(--spacer-lg);
         }
     }
 

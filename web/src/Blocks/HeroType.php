@@ -3,6 +3,7 @@
 namespace App\Blocks;
 
 use Adeliom\EasyGutenbergBundle\Blocks\AbstractBlockType;
+use App\Form\Type\ButtonGroupType;
 use App\Form\Type\DefaultSettingsBlockType;
 use App\Service\PostServiceInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
@@ -20,6 +21,7 @@ class HeroType extends AbstractBlockType
 
         $builder->add('title', TextType::class, ['label' => 'Title']);
         $builder->add('text', TextEditorType::class, ['label' => 'Text']);
+        $builder->add('button', ButtonGroupType::class, ['label' => 'Button']);
         $builder->add('image', MediaType::class);
     }
 

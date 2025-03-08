@@ -50,20 +50,6 @@ class CertificateType extends AbstractType
                     'data-message_validate' => $this->translator->trans('field.phone.message_validate', [], 'form')
                 ]
             ])
-            ->add('message', TextareaType::class, [
-                'label' => $this->translator->trans('field.message.label', [], 'form'),
-                'required' => false,
-                'row_attr' => [
-                    'class' => 'form__group size--sm',
-                ],
-                'label_attr' => [
-                    'class' => 'form__label',
-                ],
-                'attr' => [
-                    'class' => 'form__control',
-                    'placeholder' => $this->translator->trans('field.message.placeholder', [], 'form'),
-                ]
-            ])
             ->add('submit', SubmitType::class, [
                 'label' => $this->translator->trans('button.submit.label', [], 'form'),
                 'attr' => [

@@ -2,11 +2,11 @@
 
 {% block body %}
     <div class="page__header">
-        <div class="page__image">
-            {{ page.image ? looly_media(page.image.id) }}
-        </div>
-        <div class="page__container">
-            <div class="container">
+        <div class="container">
+            <div class="page__image">
+                {{ page.image ? looly_media(page.image.id) }}
+            </div>
+            <div class="page__container">
                 <h1 class="page__title">{{ page.title }}</h1>
                 <div class="page__actions">
                     <button class="button button-white actionBookPackage">{{ 'action.book'|trans }}</button>

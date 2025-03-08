@@ -27,11 +27,17 @@
         }
 
         .section__text {
-            max-width: 600px;
+            max-width: 800px;
         }
 
         .section__info {
             margin-top: var(--spacer-sm);
+
+            .item {
+                display: flex;
+                align-items: center;
+                gap: var(--spacer-sm);
+            }
         }
     }
 

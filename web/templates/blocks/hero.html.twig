@@ -4,6 +4,15 @@
     <div class="section__content">
         <h1 class="section__title display-2" data-text="{{ attributes.data.title }}">{{ attributes.data.title|raw }}</h1>
         <div class="section__text lead">{{ attributes.data.text }}</div>
+        <div class="section__actions">
+            <a href="/pro-mene" class="button button-primary">Про мене</a>
+        </div>
+
+{#        {% if attributes.data.button_text is defined %}#}
+{#            <div class="section__actions">#}
+{#                <a href="{{ attributes.data.button_link }}" class="button button-primary">{{ attributes.data.button_text }}</a>#}
+{#            </div>#}
+{#        {% endif %}#}
     </div>
     {% if attributes.data.image is defined %}
         <div class="section__image">

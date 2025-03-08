@@ -13,36 +13,9 @@
                             </div>
                             {% if page.location is not empty %}
                                 <div class="section__info">
-                                    <p>Локація: {{ page.location }}</p>
-                                </div>
-                            {% endif %}
-                        </div>
-                        <div class="section__cards" style="display: none;">
-                            {% if page.date is not empty %}
-                                <div class="section__card">
-                                    <h5 class="section__card-title">Date</h5>
-                                    <div class="section__card-text"><p>{{ page.date|date('d M, Y') }}</p></div>
-                                </div>
-                            {% endif %}
-
-                            {% if page.category %}
-                                <div class="section__card">
-                                    <h5 class="section__card-title">Category</h5>
-                                    <div class="section__card-text"><p>{{ page.category.title }}</p></div>
-                                </div>
-                            {% endif %}
-
-                            {% if page.location is not empty %}
-                                <div class="section__card">
-                                    <h5 class="section__card-title">Location</h5>
-                                    <div class="section__card-text"><p>{{ page.location }}</p></div>
-                                </div>
-                            {% endif %}
-
-                            {% if page.client is not empty %}
-                                <div class="section__card">
-                                    <h5 class="section__card-title">Client</h5>
-                                    <div class="section__card-text"><p>{{ page.client }}</p></div>
+                                    <div class="item">
+                                        <i class="icon icon-map icon--color-primary"></i> <p> {{ page.location }}</p>
+                                    </div>
                                 </div>
                             {% endif %}
                         </div>

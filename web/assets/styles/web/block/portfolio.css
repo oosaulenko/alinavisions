@@ -1,6 +1,6 @@
 .portfolio {
     display: grid;
-    grid-template-columns: var(--column);
+    grid-template-columns: var(--column-2);
     grid-gap: var(--gutter-lg);
 
     @media (min-width: 768px) {

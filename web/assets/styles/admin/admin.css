@@ -6,6 +6,7 @@
 
 
 @import "../core/module/loader.css";
+@import "../core/root.css";
 
 .is-hidden {
     display: none!important;

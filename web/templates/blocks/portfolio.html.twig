@@ -1,7 +1,6 @@
 {% extends 'blocks/base.html.twig' %}
 
 {% block body_block %}
-
     {% if attributes.data.title is not empty or attributes.data.text is not empty %}
         <div class="section__content">
             {% if attributes.data.title is not empty %}
@@ -26,6 +25,12 @@
                     <h5 class="item__title">{{ item.title }}</h5>
                 </a>
             {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if attributes.data.limit %}
+        <div class="section__actions">
+            <a href="/portfolio" class="button button-primary">Інші роботи</a>
         </div>
     {% endif %}
 {% endblock %}
