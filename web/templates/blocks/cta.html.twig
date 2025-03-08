@@ -15,7 +15,9 @@
     </div>
     {% if attributes.data.image is defined %}
         <div class="section__image">
-            {{ looly_media(attributes.data.image) }}
+            <video muted="" loop="" autoplay="" playsinline="" style="width: 100%;">
+                <source src="/uploads/certificate.MP4">
+            </video>
         </div>
     {% endif %}
 {% endblock %}

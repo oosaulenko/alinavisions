@@ -1,23 +1,21 @@
 .tabs {
     margin-bottom: var(--spacer-sm);
-    white-space: nowrap;
-    overflow-x: auto;
-    margin-left: calc(calc(var(--container-gap) * .5) * -1);
-    margin-right: calc(calc(var(--container-gap) * .5) * -1);
-    padding: var(--spacer-sm) calc(var(--container-gap) * .5);
+    padding: var(--spacer-sm) 0;
 
     .tabs__nav {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        gap: var(--spacer-lg);
+        gap: var(--spacer-sm) var(--spacer-lg);
 
         @media (min-width: 768px) {
-            gap: var(--spacer-xl);
+            gap: var(--spacer-sm) var(--spacer-xl);
         }
     }
 
     .tab {
         transition: var(--transition);
+        padding: 2px 0;
 
         &:hover {
             color: var(--color-primary);

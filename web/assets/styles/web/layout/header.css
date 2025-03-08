@@ -1,7 +1,17 @@
 header.header {
+    background-color: var(--color-body);
     padding: var(--spacer-2xl) 0;
-    position: relative;
+    position: fixed;
     z-index: 7000;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: var(--transition);
+
+    &.is-scrolled {
+        padding: var(--spacer) 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    }
 
     .header__wrapper {
         display: flex;
@@ -96,12 +106,29 @@ header.header {
     border: 0;
     padding: 0;
     background: none;
-    width: 24px;
-    height: 24px;
     position: relative;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gutter-lg);
 
-    span {
+    .menu_button__text {
+        text-transform: uppercase;
+        font-weight: 500;
+        color: var(--color-primary);
+        font: var(--font-xs);
+        font-weight: 500;
+        text-align: right;
+    }
+
+    .menu_button__lines {
+        position: relative;
+        min-width: 24px;
+        height: 24px;
+        display: block;
+    }
+
+    .menu_button__line {
         position: absolute;
         width: 100%;
         height: 2px;
@@ -120,9 +147,7 @@ header.header {
     }
 
     &.is-active {
-        gap: 0;
-
-        span {
+        .menu_button__line {
             width: 24px;
             right: auto;
             left: 0;
@@ -142,7 +167,7 @@ header.header {
 }
 
 .mobile_menu {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;

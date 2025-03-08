@@ -4,7 +4,7 @@
     <select name="language" onchange="this.form.submit()">
         {% for code, lang in langs %}
             <option value="{{ code }}" data-html="<img src='{{ asset('icon/flag/' ~ code ~ '.svg') }}'> {{ lang }}" {{ app.request.locale == code ? 'selected' : '' }}>
-                <img src="{{ asset('icon/flag/ua.svg') }}" alt="{{ lang }}">
+                <img src="{{ asset('icon/flag/uk.svg') }}" alt="{{ lang }}">
                 {{ lang }}
             </option>
         {% endfor %}

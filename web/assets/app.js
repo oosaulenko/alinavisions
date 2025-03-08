@@ -30,6 +30,12 @@ function validatePhoneEmail(value) {
 }
 
 function scrollToTarget(targetId) {
+    const body = document.querySelector("body");
+
+    if(body.classList.contains('is-overflow')) {
+        closeMobileMenu();
+    }
+
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
         window.scrollTo({
@@ -37,6 +43,34 @@ function scrollToTarget(targetId) {
             behavior: "smooth"
         });
     }
+}
+
+function openMobileMenu() {
+    const mobileMenu = document.querySelector('.mobile_menu');
+    const body = document.querySelector('body');
+
+    mobileMenu.classList.add('is-show');
+    body.classList.add('is-overflow');
+}
+
+function closeMobileMenu() {
+    const mobileMenu = document.querySelector('.mobile_menu');
+    const body = document.querySelector('body');
+
+    mobileMenu.classList.remove('is-show');
+    body.classList.remove('is-overflow');
+
+    const textField = mobileMenuBtn.querySelector('.menu_button__text');
+    const textOpen = textField.getAttribute('data-open');
+    const textClose = textField.getAttribute('data-close');
+
+    if(mobileMenuBtn.classList.contains('is-active')) {
+        textField.innerHTML = textOpen;
+    } else {
+        textField.innerHTML = textClose;
+    }
+
+    mobileMenuBtn.classList.remove('is-active');
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -66,8 +100,17 @@ const body = document.querySelector('body');
 if(mobileMenuBtn) {
     mobileMenuBtn.addEventListener('click', function (e) {
         e.preventDefault();
-        // const menu = document.querySelector('.menu');
-        // menu.classList.toggle('is-show');
+
+        const textField = mobileMenuBtn.querySelector('.menu_button__text');
+        const textOpen = textField.getAttribute('data-open');
+        const textClose = textField.getAttribute('data-close');
+
+        if(mobileMenuBtn.classList.contains('is-active')) {
+            textField.innerHTML = textOpen;
+        } else {
+            textField.innerHTML = textClose;
+        }
+
         mobileMenuBtn.classList.toggle('is-active');
         mobileMenu.classList.toggle('is-show');
         body.classList.toggle('is-overflow');
@@ -180,4 +223,16 @@ document.addEventListener('submit', (e) => {
             });
 
     }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.querySelector("header");
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 50) {
+            header.classList.add("is-scrolled");
+        } else {
+            header.classList.remove("is-scrolled");
+        }
+    });
 });

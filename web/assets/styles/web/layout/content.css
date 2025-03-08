@@ -18,7 +18,12 @@ body {
 }
 
 .wrapper {
+    margin-top: 88px;
     margin-bottom: auto;
+
+    @media (min-width: 576px) {
+        margin-top: 97px;
+    }
 
     .section {
         &:first-of-type {

@@ -2,8 +2,29 @@
     <div class="modal modal-form_certificate">
         <h3 class="modal__title">{{ 'certificate.title'|trans({}, 'form') }}</h3>
         <div class="modal__content">{{ 'certificate.subtitle'|trans({}, 'form') }}</div>
-        <div class="modal__form">
-            {{ form(forms.formCertificate) }}
+        <div class="modal__body">
+            <div class="modal__body_left">
+                <h6>Що всередині?</h6>
+                <ul>
+                    <li>Фотосесія за будь-яким обраним пакетом</li>
+                    <li>Консультація з підготовки до зйомки: підбір образів, локації та загального настрою</li>
+                    <li>Сертифікат у стильному оформленні, яке саме по собі вже відчувається як подарунок</li>
+                    <li>Багато класних фото, які точно сподобаються</li>
+                </ul>
+                <h6>Як отримати?</h6>
+                <ul>
+                    <li>Сертифікати вже в наявності</li>
+                    <li>Можна забрати особисто або я відправлю поштою</li>
+                </ul>
+
+                <p><b>Термін дії</b> – 3 місяці з моменту вручення адресату</p>
+                <p><b>Вартість</b> – дорівнює ціні обраної фотосесії, тож усе просто</p>
+            </div>
+            <div class="modal__body_right">
+                <div class="modal__form">
+                    {{ form(forms.formCertificate) }}
+                </div>
+            </div>
         </div>
     </div>
 </template>

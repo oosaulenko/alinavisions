@@ -52,6 +52,8 @@
     --font-size-label: 1.063rem;
     --font-size-label-sm: 1rem;
 
+    --font-text-sm: normal var(--font-size-small)/1.5 var(--font-sans);
+
     --font-xs: normal 14px/normal var(--font-sans);
     --font-s: bold 15px/normal var(--font-sans);
     --font-m: normal 17px/33px var(--font-sans);
