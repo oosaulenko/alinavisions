@@ -9,6 +9,8 @@ use App\Form\Type\TitleGroupType;
 use App\Service\PostServiceInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
 use Looly\Media\Form\Type\MediaType;
+use Symfony\Component\Asset\Package;
+use Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -49,12 +51,14 @@ class ImageType extends AbstractBlockType
 
     public static function configureAssets(): array
     {
+        $package = new Package(new JsonManifestVersionStrategy(__DIR__ . '/../../public/build/manifest.json'));
+
         return [
             'js' => [
-                '/build/block-image.js'
+                $package->getUrl('build/block-image.js')
             ],
             'css' => [
-                '/build/block-image.css'
+                $package->getUrl('build/block-image.css')
             ],
         ];
     }

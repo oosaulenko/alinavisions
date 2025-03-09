@@ -8,6 +8,8 @@ use App\Form\Type\DefaultSettingsBlockType;
 use App\Service\PostServiceInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
 use Looly\Media\Form\Type\MediaType;
+use Symfony\Component\Asset\Package;
+use Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -52,12 +54,14 @@ class HeroType extends AbstractBlockType
 
     public static function configureAssets(): array
     {
+        $package = new Package(new JsonManifestVersionStrategy(__DIR__ . '/../../public/build/manifest.json'));
+
         return [
             'js' => [
-                '/build/block-hero.js'
+                $package->getUrl('build/block-hero.js')
             ],
             'css' => [
-                '/build/block-hero.css'
+                $package->getUrl('build/block-hero.css')
             ],
         ];
     }

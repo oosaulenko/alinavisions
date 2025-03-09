@@ -6,6 +6,8 @@ use Adeliom\EasyGutenbergBundle\Blocks\AbstractBlockType;
 use App\Form\Type\ButtonGroupType;
 use App\Form\Type\DefaultSettingsBlockType;
 use App\Service\PackageServiceInterface;
+use Symfony\Component\Asset\Package;
+use Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -49,12 +51,14 @@ class ServiceListType extends AbstractBlockType
 
     public static function configureAssets(): array
     {
+        $package = new Package(new JsonManifestVersionStrategy(__DIR__ . '/../../public/build/manifest.json'));
+
         return [
             'js' => [
-                '/build/block-services.js'
+                $package->getUrl('build/block-services.js')
             ],
             'css' => [
-                '/build/block-services.css'
+                $package->getUrl('build/block-services.css')
             ],
         ];
     }

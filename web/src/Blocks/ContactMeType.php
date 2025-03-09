@@ -5,6 +5,8 @@ namespace App\Blocks;
 use Adeliom\EasyGutenbergBundle\Blocks\AbstractBlockType;
 use App\Form\Type\DefaultSettingsBlockType;
 use Looly\Media\Form\Type\MediaType;
+use Symfony\Component\Asset\Package;
+use Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -50,12 +52,14 @@ class ContactMeType extends AbstractBlockType
 
     public static function configureAssets(): array
     {
+        $package = new Package(new JsonManifestVersionStrategy(__DIR__ . '/../../public/build/manifest.json'));
+
         return [
             'js' => [
-                '/build/block-contact_me.js'
+                $package->getUrl('build/block-contact_me.js')
             ],
             'css' => [
-                '/build/block-contact_me.css'
+                $package->getUrl('build/block-contact_me.css')
             ],
         ];
     }

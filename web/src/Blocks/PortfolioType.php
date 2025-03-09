@@ -8,6 +8,8 @@ use App\Form\Type\DefaultSettingsBlockType;
 use App\Service\CategoryServiceInterface;
 use App\Service\Portfolio\PortfolioServiceInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
+use Symfony\Component\Asset\Package;
+use Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -69,12 +71,14 @@ class PortfolioType extends AbstractBlockType
 
     public static function configureAssets(): array
     {
+        $package = new Package(new JsonManifestVersionStrategy(__DIR__ . '/../../public/build/manifest.json'));
+
         return [
             'js' => [
-                '/build/block-portfolio.js'
+                $package->getUrl('build/block-portfolio.js')
             ],
             'css' => [
-                '/build/block-portfolio.css'
+                $package->getUrl('build/block-portfolio.css')
             ],
         ];
     }
