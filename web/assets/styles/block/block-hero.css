@@ -45,6 +45,7 @@
     .section__image {
         width: 100%;
         height: 100%;
+        position: relative;
 
         @media (min-width: 768px) {
             order: 1;
@@ -53,6 +54,32 @@
 
         img {
             min-width: 100%;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            @media (min-width: 768px) {
+                height: auto;
+                object-fit: initial;
+            }
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(var(--color-title-rgb), .4);
+
+            @media (min-width: 768px) {
+                display: none;
+            }
         }
     }
 
