@@ -33,6 +33,11 @@ body {
         &:last-child {
             padding-bottom: 0;
         }
+
+        .section-text-content + .section-text-content {
+            padding-top: var(--spacer-xl);
+            padding-bottom: var(--spacer-xl);
+        }
     }
 }
 
