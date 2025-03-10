@@ -34,6 +34,10 @@ body {
             padding-bottom: 0;
         }
 
+        &.section-text-content:first-of-type {
+            padding-bottom: var(--spacer-xl);
+        }
+
         &.section-text-content + &.section-text-content {
             padding-top: var(--spacer-xl);
             padding-bottom: var(--spacer-xl);
