@@ -31,7 +31,7 @@
 
             <button type="submit" class="button button-primary">{{ 'button.submit.label'|trans({}, 'form') }}</button>
 
-            <input type="hidden" id="contact__token" name="contact[_token]" value="01b53.pEpEHSCqDYYyY8ADG1dBw3Z4b7SGlFrCNqe-baJyKxs.4BUee3PBRtdlObAzcxIIrzobWf_e12KJBsrVN9g0WivyJA1MV-5nzUERtw">
+            <input type="hidden" id="contact__token" name="contact[_token]" value="{{ csrf_token('contact') }}">
         </form>
     </div>
 {% endblock %}
