@@ -35,7 +35,7 @@ class SinglePackageController extends AbstractController
 
         $portfolios = $this->portfolioService->list([
             'category' => $package->getCategory(),
-        ], 6);
+        ], 18);
 
         return $this->render('web/package/single.html.twig', array_merge(
             $this->dataEntityView->getMeta($package),
