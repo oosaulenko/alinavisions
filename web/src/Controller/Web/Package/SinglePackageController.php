@@ -35,6 +35,7 @@ class SinglePackageController extends AbstractController
 
         $portfolios = $this->portfolioService->list([
             'category' => $package->getCategory(),
+            'status' => 'published',
         ], 18);
 
         return $this->render('web/package/single.html.twig', array_merge(
