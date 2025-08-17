@@ -5,6 +5,9 @@ when@dev:
             ignore_exceptions:
                 - 'Symfony\Component\ErrorHandler\Error\FatalError'
                 - 'Symfony\Component\Debug\Exception\FatalErrorException'
+                - 'Symfony\Component\HttpKernel\Exception\HttpExceptionInterface'
+                - 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException'
+                - 'Symfony\Component\Security\Core\Exception\AccessDeniedException'
         tracing:
             enabled: true
             dbal:

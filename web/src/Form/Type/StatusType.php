@@ -14,10 +14,11 @@ class StatusType extends AbstractType
         $resolver->setDefaults([
             'required' => true,
             'choices' => [
-                'Draft' => 'draft',
-                'Published' => 'published',
-                'Archived' => 'archived',
+                'Чернетка' => 'draft',
+                'Опубліковано' => 'published',
+                'Архів' => 'archived',
             ],
+            'default_value' => 'published',
         ]);
     }
 

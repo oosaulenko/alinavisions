@@ -53,24 +53,22 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToCrud('Сторінки', 'fa fa-file-lines', Page::class);
+        yield MenuItem::linkToRoute('Медіа', 'fa fa-picture-o', 'looly_media_list');
 
         yield MenuItem::section('<hr style="margin: 0;">');
-        yield MenuItem::linkToCrud('Pages', 'fa fa-file-lines', Page::class);
-        yield MenuItem::section('<hr style="margin: 0;">');
-        yield MenuItem::linkToCrud('Portfolio', 'fa fa-briefcase', Portfolio::class);
-        yield MenuItem::linkToCrud('Photoshoots', 'fa fa-images', Photoshoot::class);
-        yield MenuItem::linkToCrud('Packages', 'fa fa-cube', Package::class);
-        yield MenuItem::linkToCrud('Posts', 'fa fa-file-lines', Post::class);
-        yield MenuItem::linkToCrud('Categories', 'fa fa-tags', Category::class);
+        yield MenuItem::linkToCrud('Портфоліо', 'fa fa-briefcase', Portfolio::class);
+        yield MenuItem::linkToCrud('Фотосесії', 'fa fa-images', Photoshoot::class);
+        yield MenuItem::linkToCrud('Послуги', 'fa fa-cube', Package::class);
+//        yield MenuItem::linkToCrud('Статті', 'fa fa-file-lines', Post::class);
+        yield MenuItem::linkToCrud('Категорії', 'fa fa-tags', Category::class);
 
         yield MenuItem::section('<hr style="margin: 0;">');
-        yield MenuItem::linkToRoute('Medias', 'fa fa-picture-o', 'looly_media_list');
-        yield MenuItem::linkToCrud('Menus', 'fa fa-bars-staggered', Menu::class);
-        yield MenuItem::linkToRoute('Settings', 'fa fa-cog', 'admin_settings')->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Меню', 'fa fa-bars-staggered', Menu::class);
+        yield MenuItem::linkToRoute('Налаштування', 'fa fa-cog', 'admin_settings')->setPermission('ROLE_ADMIN');
 
         yield MenuItem::section('<hr style="margin: 0;">');
-        yield MenuItem::linkToCrud('Users', 'fa fa-user', User::class);
+        yield MenuItem::linkToCrud('Користувачі', 'fa fa-user', User::class);
         yield MenuItem::linkToLogout('Logout', 'fa fa-sign-out');
     }
 }

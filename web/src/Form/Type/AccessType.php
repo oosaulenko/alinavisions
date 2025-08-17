@@ -14,9 +14,9 @@ class AccessType extends AbstractType
         $resolver->setDefaults([
             'required' => true,
             'choices' => [
-                'Close' => 'close',
-                'Direct link' => 'direct_link',
-                'Public' => 'public',
+                'Закрита' => 'close',
+                'Пряме посилання' => 'direct_link',
+                'Публічно' => 'public',
             ],
             'default_value' => 'close',
         ]);
