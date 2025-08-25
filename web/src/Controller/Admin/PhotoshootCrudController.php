@@ -4,7 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Photoshoot;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
-use Looly\Media\Admin\Field\LoolyGalleryField;
+use App\Admin\Field\Media\LoolyGalleryField;
 
 class PhotoshootCrudController extends BaseCrudController
 {

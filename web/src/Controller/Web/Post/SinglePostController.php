@@ -2,7 +2,7 @@
 
 namespace App\Controller\Web\Post;
 
-use App\Service\PostServiceInterface;
+use App\Service\Post\PostServiceInterface;
 use App\Utility\DataEntityViewInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;

@@ -16,6 +16,7 @@
     .tab {
         transition: var(--transition);
         padding: 2px 0;
+        cursor: pointer;
 
         &:hover {
             color: var(--color-primary);

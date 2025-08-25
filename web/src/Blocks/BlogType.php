@@ -4,7 +4,7 @@ namespace App\Blocks;
 
 use Adeliom\EasyGutenbergBundle\Blocks\AbstractBlockType;
 use App\Form\Type\DefaultSettingsBlockType;
-use App\Service\PostServiceInterface;
+use App\Service\Post\PostServiceInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 

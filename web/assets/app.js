@@ -10,6 +10,7 @@ import './styles/app.css';
 
 import './js/callMeBack';
 import './js/bookPackage';
+import './js/tabs';
 // import './js/downloadPhotos';
 import './js/select';
 
@@ -116,10 +117,6 @@ if(mobileMenuBtn) {
         body.classList.toggle('is-overflow');
     });
 }
-
-var lightbox = new SimpleLightbox('.section-portfolio_list .section__item', {
-
-});
 
 document.addEventListener("click", function (e) {
     if(e.target.href) {

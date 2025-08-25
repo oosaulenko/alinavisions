@@ -28,8 +28,14 @@
     "axios": "^1.7.2",
     "basiclightbox": "^5.0.4",
     "bazinga-translator": "^6.0.0",
+    "dragselect": "^3.1.1",
+    "filepond": "^4.32.8",
+    "filepond-plugin-file-metadata": "^1.0.8",
+    "filepond-plugin-image-preview": "^4.6.12",
     "simplelightbox": "^2.14.3",
     "slim-select": "^2.8.2",
-    "sortablejs": "^1.15.2"
+    "sortablejs": "^1.15.6",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.9.2"
   }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\OptionRepository;
+use App\Repository\Option\OptionRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 

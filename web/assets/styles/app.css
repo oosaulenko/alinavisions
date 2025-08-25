@@ -45,3 +45,7 @@
 /* Pages */
 @import url('web/page/base.css');
 @import url('web/page/404.css');
+
+.is--hidden {
+    display: none!important;
+}

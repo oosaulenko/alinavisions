@@ -9,7 +9,7 @@ use App\Entity\Post;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-use Looly\Media\Admin\Field\LoolyMediaField;
+use App\Admin\Field\Media\LoolyMediaField;
 
 class PostCrudController extends BaseCrudController
 {

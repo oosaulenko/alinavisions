@@ -17,6 +17,5 @@ return [
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
     EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle::class => ['all' => true],
     Adeliom\EasyGutenbergBundle\EasyGutenbergBundle::class => ['all' => true],
-    Looly\Media\LoolyMediaBundle::class => ['all' => true],
     Sentry\SentryBundle\SentryBundle::class => ['prod' => true, 'dev' => true],
 ];

@@ -2,6 +2,8 @@ import "/assets/styles/admin/admin.css";
 
 import * as actions from "./field/field-collection";
 
+import "./module/media/media";
+
 document.addEventListener('DOMContentLoaded', actions.fieldCollectionAction);
 document.addEventListener('ea.collection.item-added', actions.fieldCollectionAction);
 

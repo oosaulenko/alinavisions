@@ -2,7 +2,7 @@
 
 namespace App\Twig;
 
-use App\Service\OptionServiceInterface;
+use App\Service\Option\OptionServiceInterface;
 use App\Utility\PropertyView;
 use Twig\Environment;
 use Twig\Extension\AbstractExtension;

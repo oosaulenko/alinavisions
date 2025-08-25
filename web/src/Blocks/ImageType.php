@@ -4,15 +4,9 @@ namespace App\Blocks;
 
 use Adeliom\EasyGutenbergBundle\Blocks\AbstractBlockType;
 use App\Form\Type\DefaultSettingsBlockType;
-use App\Form\Type\HeightGroupType;
-use App\Form\Type\TitleGroupType;
-use App\Service\PostServiceInterface;
-use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
 use Looly\Media\Form\Type\MediaType;
 use Symfony\Component\Asset\Package;
 use Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class ImageType extends AbstractBlockType

@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\LoolyMedia\Media;
-use App\Repository\PackageRepository;
+use App\Repository\Package\PackageRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;

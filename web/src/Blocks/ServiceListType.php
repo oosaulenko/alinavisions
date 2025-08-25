@@ -5,10 +5,9 @@ namespace App\Blocks;
 use Adeliom\EasyGutenbergBundle\Blocks\AbstractBlockType;
 use App\Form\Type\ButtonGroupType;
 use App\Form\Type\DefaultSettingsBlockType;
-use App\Service\PackageServiceInterface;
+use App\Service\Package\PackageServiceInterface;
 use Symfony\Component\Asset\Package;
 use Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 

@@ -3,9 +3,9 @@
 namespace App\Form;
 
 use App\Form\DataTransformer\MediaTypeTransformer;
+use App\Form\Type\MediaType;
+use App\Service\Media\MediaServiceInterface;
 use App\Utility\LanguagesInterface;
-use Looly\Media\Form\Type\MediaType;
-use Looly\Media\Service\MediaServiceInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;

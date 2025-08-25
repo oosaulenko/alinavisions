@@ -1,0 +1,27 @@
+.lm-card-folder {
+    border-radius: 8px;
+    background-color: #F0F4F9;
+    font-size: 14px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    cursor: pointer;
+
+    .lm-card-folder__icon {
+        width: 20px;
+        height: 16px;
+        background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0'%3F%3E%3Csvg height='16px' version='1.1' viewBox='0 0 20 16' width='20px' xmlns='http://www.w3.org/2000/svg' xmlns:sketch='http://www.bohemiancoding.com/sketch/ns' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle/%3E%3Cdesc/%3E%3Cdefs/%3E%3Cg fill='none' fill-rule='evenodd' id='Page-1' stroke='none' stroke-width='1'%3E%3Cg fill='%23444746' id='Core' transform='translate(-44.000000, -256.000000)'%3E%3Cg id='folder' transform='translate(44.000000, 256.000000)'%3E%3Cpath d='M8,0 L2,0 C0.9,0 0,0.9 0,2 L0,14 C0,15.1 0.9,16 2,16 L18,16 C19.1,16 20,15.1 20,14 L20,4 C20,2.9 19.1,2 18,2 L10,2 L8,0 L8,0 Z' id='Shape'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    &:hover {
+        background-color: #E1E5EA;
+    }
+
+    &.drag-over {
+        outline: 2px dashed #888;
+        outline-offset: 3px;
+        background: rgba(0,0,0,0.04);
+    }
+}

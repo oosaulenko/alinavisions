@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\LoolyMedia\Media;
-use App\Repository\PortfolioRepository;
+use App\Repository\Portfolio\PortfolioRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -78,9 +78,23 @@ class Portfolio
     #[ORM\ManyToOne]
     private ?Photoshoot $photoshoot = null;
 
+    /**
+     * @var Collection<int, PortfolioCategoryMedia>
+     */
+    #[ORM\OneToMany(targetEntity: PortfolioCategoryMedia::class, mappedBy: 'portfolio', orphanRemoval: true)]
+    private Collection $portfolioCategoryMedia;
+
+    /**
+     * @var Collection<int, PortfolioMedias>
+     */
+    #[ORM\OneToMany(targetEntity: PortfolioMedias::class, mappedBy: 'portfolio', orphanRemoval: true)]
+    private Collection $portfolioMedias;
+
     public function __construct()
     {
         $this->media = new ArrayCollection();
+        $this->portfolioCategoryMedia = new ArrayCollection();
+        $this->portfolioMedias = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -360,6 +374,128 @@ class Portfolio
     public function setPhotoshoot(?Photoshoot $photoshoot): static
     {
         $this->photoshoot = $photoshoot;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PortfolioCategoryMedia>
+     */
+    public function getPortfolioCategoryMedia(): Collection
+    {
+        return $this->portfolioCategoryMedia;
+    }
+
+    public function getCategoriesMedia(): array
+    {
+        $categoriesMedia = [];
+        foreach ($this->getPortfolioCategoryMedia() as $categoryMedia) {
+            $categoriesMedia[$categoryMedia->getName()] = $categoryMedia;
+        }
+        ksort($categoriesMedia);
+
+        return $categoriesMedia;
+    }
+
+    public function getPortfolioCM(): array
+    {
+        $portfolioCM = [];
+        foreach ($this->getPortfolioCategoryMedia() as $PortfolioCategoryMedia) {
+            $portfolioCM[$PortfolioCategoryMedia->getSort()] = $PortfolioCategoryMedia;
+        }
+        ksort($portfolioCM);
+
+        return $portfolioCM;
+    }
+
+    public function addPortfolioCategoryMedium(PortfolioCategoryMedia $portfolioCategoryMedium): static
+    {
+        if (!$this->portfolioCategoryMedia->contains($portfolioCategoryMedium)) {
+            $this->portfolioCategoryMedia->add($portfolioCategoryMedium);
+            $portfolioCategoryMedium->setPortfolio($this);
+        }
+
+        return $this;
+    }
+
+    public function removePortfolioCategoryMedium(PortfolioCategoryMedia $portfolioCategoryMedium): static
+    {
+        if ($this->portfolioCategoryMedia->removeElement($portfolioCategoryMedium)) {
+            // set the owning side to null (unless already changed)
+            if ($portfolioCategoryMedium->getPortfolio() === $this) {
+                $portfolioCategoryMedium->setPortfolio(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PortfolioMedias>
+     */
+    public function getPortfolioMedias(): Collection
+    {
+        return $this->portfolioMedias;
+    }
+
+    public function getMedias(): array
+    {
+        $medias = [];
+
+        foreach ($this->getPortfolioMedias() as $media) {
+            $categoryName = $media->getCategory() ? $media->getCategory()->getName() : 'none';
+            $medias[$categoryName][$media->getMedia()->getId()] = $media;
+        }
+
+        return $medias;
+    }
+
+    public function getPortfolioM(): array
+    {
+        $items = $this->getPortfolioMedias()->toArray();
+
+        // 1) Сортуємо за sort
+        usort($items, static fn($a, $b) => $a->getSort() <=> $b->getSort());
+
+        $count = count($items);
+        if ($count === 0 || 3 <= 1) {
+            return $items;
+        }
+
+        $rows = (int) ceil($count / 3);
+
+        // 3) Трансформуємо у порядок "по колонках": 1,4,2,5,3,6
+        $result = [];
+        for ($col = 0; $col < 3; $col++) {
+            for ($row = 0; $row < $rows; $row++) {
+                $idx = $row * 3 + $col; // КЛЮЧОВИЙ момент
+                if ($idx < $count) {
+                    $result[] = $items[$idx];
+                }
+            }
+        }
+
+        return $result;
+    }
+
+    public function addPortfolioMedia(PortfolioMedias $portfolioMedia): static
+    {
+        if (!$this->portfolioMedias->contains($portfolioMedia)) {
+            $this->portfolioMedias->add($portfolioMedia);
+            $portfolioMedia->setPortfolio($this);
+        }
+
+        return $this;
+    }
+
+    public function removePortfolioMedia(PortfolioMedias $portfolioMedia): static
+    {
+        if ($this->portfolioMedias->removeElement($portfolioMedia)) {
+            // set the owning side to null (unless already changed)
+            if ($portfolioMedia->getPortfolio() === $this) {
+                $portfolioMedia->setPortfolio(null);
+            }
+        }
 
         return $this;
     }

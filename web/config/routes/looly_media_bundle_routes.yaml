@@ -1,2 +1,0 @@
-looly_media_bundle_routes:
-    resource: '@LoolyMediaBundle/config/routes.yaml'

@@ -70,4 +70,7 @@ return [
         'version' => '2.14.3',
         'type' => 'css',
     ],
+    'basiclightbox' => [
+        'version' => '5.0.4',
+    ],
 ];

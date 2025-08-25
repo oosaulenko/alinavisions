@@ -55,7 +55,7 @@ abstract class BaseCrudController extends AbstractCrudController
     {
         return parent::configureCrud($crud)
             ->addFormTheme('@EasyGutenberg/form/gutenberg_widget.html.twig')
-            ->addFormTheme('@looly_media/form/form_theme.html.twig')
+            ->addFormTheme('form/form_theme.html.twig')
             ->showEntityActionsInlined();
     }
 
@@ -64,33 +64,33 @@ abstract class BaseCrudController extends AbstractCrudController
         $entity = new (static::getEntityFqcn())();
         $fields = [];
 
-        $fields[5] = TitleField::new('title');
+        $fields[5] = TitleField::new('title')->setLabel('Назва');
 
         if(method_exists($entity, 'getDescription')) {
             $fields[7] = TextareaField::new('description')->setColumns(12);
         }
 
         $fields[90] = DateField::new('updatedAt')
-            ->setLabel('Updated')->onlyOnIndex()
+            ->setLabel('Оновлено')->onlyOnIndex()
             ->formatValue(function ($value) {
                 return $this->humanDate($value);
             });
         $fields[91] = DateField::new('createdAt')
-            ->setLabel('Created')->onlyOnIndex()
+            ->setLabel('Додано')->onlyOnIndex()
             ->formatValue(function ($value) {
                 return $this->humanDate($value);
             });
 
         if(method_exists($entity, 'getSlug')) {
-            $fields[40] = SlugField::new('slug')
+            $fields[40] = SlugField::new('slug')->setLabel('Слаг')
                 ->onlyOnForms()
                 ->setTargetFieldName('title')
-                ->setHelp('The slug is used in the URL to identify this category.')
+                ->setHelp('Слаг для URL')
                 ->setColumns(12);
         }
 
         if(method_exists($entity, 'getRelativeLocales')) {
-            $fields[50] = CollectionField::new('relativeLocales')
+            $fields[50] = CollectionField::new('relativeLocales')->setLabel('Переклади')
                 ->setEntryType(RelativeLocalesType::class)
                 ->setFormTypeOption('entry_options', ['entity' => static::getEntityFqcn()])
                 ->allowAdd(false)
@@ -121,7 +121,7 @@ abstract class BaseCrudController extends AbstractCrudController
         if(method_exists($entity_type, '_actions')) {
             foreach ($entity_type->_actions() as $type => $action) {
                 if($type == 'view') {
-                    $action = Action::new('view', 'View')
+                    $action = Action::new('view', 'Переглянути')
                         ->addCssClass('text-success')
                         ->setIcon('fa fa-eye')
                         ->setHtmlAttributes(['target' => '_blank'])
@@ -134,7 +134,7 @@ abstract class BaseCrudController extends AbstractCrudController
                 }
 
                 if($type == 'clone') {
-                    $action = Action::new('clone', 'Clone')
+                    $action = Action::new('clone', 'Клонувати')
                         ->addCssClass('text-warning')
                         ->setIcon('fa fa-clone')
                         ->setHtmlAttributes(['target' => '_blank'])
@@ -144,7 +144,7 @@ abstract class BaseCrudController extends AbstractCrudController
                 }
 
                 if($type == 'download_link') {
-                    $action = Action::new('download_link', 'Download link')
+                    $action = Action::new('download_link', 'Лінк на завантаження')
                         ->addCssClass('text-primary')
                         ->setIcon('fa fa-download')
                         ->setHtmlAttributes(['target' => '_blank'])

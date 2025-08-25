@@ -27,16 +27,41 @@
         <section class="section section-portfolio_list">
             <div class="section__wrapper">
                 <div class="container">
+                    {% if page.portfolioCM|length > 0 %}
+                        <div class="section__tabs">
+                            <div class="tabs js-tabs">
+                                <div class="tabs__nav">
+                                    <div class="tab lead active" data-name="all">
+                                        Всі фото
+                                    </div>
+
+                                    {% for category in page.portfolioCM %}
+                                        <div class="tab lead" data-name="{{ category.name }}">
+                                            {{ category.name }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
                     <div class="section__list">
                         {% if app.request.get('hash') is empty %}
-                            {% for media in page.media %}
-                                <a href="/{{ media.getDesktop }}" class="section__item">
-                                    {{ looly_media(media.id) }}
+                            {% if page.PortfolioM|length == 0 %}
+                                {% for media in page.media %}
+                                    <a href="/{{ media.getDesktop }}" class="section__item" data-category="none">
+                                        {{ looly_media(media.id) }}
+                                    </a>
+                                {% endfor %}
+                            {% endif %}
+
+                            {% for media in page.PortfolioM %}
+                                <a href="/{{ media.media.getDesktop }}" class="section__item" data-category="{{ media.category.name|default('none') }}">
+                                    {{ looly_media(media.media.id) }}
                                 </a>
                             {% endfor %}
                         {% endif %}
 
-                        {% if app.request.get('hash') is not empty %}
+                        {% if app.request.get('hash') is not empty and page.photoshoot|length > 0 %}
                             {% for media in page.photoshoot.media %}
                                 <a href="/{{ media.getDesktop }}" class="section__item">
                                     {{ looly_media(media.id) }}

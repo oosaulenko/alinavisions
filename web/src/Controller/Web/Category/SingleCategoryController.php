@@ -2,7 +2,7 @@
 
 namespace App\Controller\Web\Category;
 
-use App\Service\CategoryServiceInterface;
+use App\Service\Category\CategoryServiceInterface;
 use App\Utility\DataEntityViewInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;

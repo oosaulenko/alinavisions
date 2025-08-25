@@ -3,7 +3,7 @@
 namespace App\Service\Portfolio;
 
 use App\Entity\Portfolio;
-use App\Repository\PortfolioRepositoryInterface;
+use App\Repository\Portfolio\PortfolioRepositoryInterface;
 
 class PortfolioService implements PortfolioServiceInterface
 {

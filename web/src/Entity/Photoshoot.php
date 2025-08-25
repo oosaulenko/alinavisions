@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\LoolyMedia\Media;
-use App\Repository\PhotoshootRepository;
+use App\Repository\Photoshoot\PhotoshootRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;

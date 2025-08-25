@@ -4,8 +4,10 @@
 @import "field/field-group-title.css";
 @import "field/field-group-settings.css";
 
-
+@import "module/slimselect.css";
+@import "module/media/media.css";
 @import "../core/module/loader.css";
+
 @import "../core/root.css";
 
 .is-hidden {

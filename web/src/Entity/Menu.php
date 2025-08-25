@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\MenuRepository;
+use App\Repository\Menu\MenuRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: MenuRepository::class)]

@@ -4,8 +4,7 @@ namespace App\Controller\Admin;
 
 use App\DTO\SettingsDTO;
 use App\Form\SettingsType;
-use App\Service\OptionServiceInterface;
-use Looly\Media\Form\UploadFormType;
+use App\Service\Option\OptionServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;

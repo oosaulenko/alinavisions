@@ -3,7 +3,7 @@
 namespace App\Controller\Web\Package;
 
 use App\Form\PackageType;
-use App\Service\PackageServiceInterface;
+use App\Service\Package\PackageServiceInterface;
 use App\Service\Portfolio\PortfolioServiceInterface;
 use App\Utility\DataEntityViewInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

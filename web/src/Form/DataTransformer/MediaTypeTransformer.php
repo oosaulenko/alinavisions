@@ -3,7 +3,7 @@
 namespace App\Form\DataTransformer;
 
 use App\Entity\LoolyMedia\Media;
-use Looly\Media\Service\MediaServiceInterface;
+use App\Service\Media\MediaServiceInterface;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\TransformationFailedException;
 

@@ -11,8 +11,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use Looly\Media\Admin\Field\LoolyGalleryField;
-use Looly\Media\Admin\Field\LoolyMediaField;
+use App\Admin\Field\Media\LoolyGalleryField;
+use App\Admin\Field\Media\LoolyMediaField;
 
 class PackageCrudController extends BaseCrudController
 {

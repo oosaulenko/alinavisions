@@ -1,0 +1,12 @@
+.lm-field-input {
+    width: 100%;
+    display: block;
+    position: relative;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 6px 12px;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid var(--form-input-border-color);
+    border-radius: var(--bs-border-radius);
+}

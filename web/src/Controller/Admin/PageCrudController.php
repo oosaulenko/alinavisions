@@ -6,7 +6,7 @@ use Adeliom\EasyGutenbergBundle\Admin\Field\GutenbergField;
 use App\Admin\Field\DataField;
 use App\Admin\Field\StatusField;
 use App\Entity\Page;
-use App\Service\PageServiceInterface;
+use App\Service\Page\PageServiceInterface;
 use App\Utility\LanguagesInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;

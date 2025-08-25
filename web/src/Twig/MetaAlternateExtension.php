@@ -23,6 +23,8 @@ class MetaAlternateExtension extends AbstractExtension
 
     public function view($entity): string
     {
+        return '';
+
         if(!$entity->getRelativeLocales()) return '';
 
         $supportedLangs = $this->languages->getSupportLangs();

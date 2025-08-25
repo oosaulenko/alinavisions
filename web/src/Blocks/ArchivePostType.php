@@ -5,7 +5,7 @@ namespace App\Blocks;
 use Adeliom\EasyGutenbergBundle\Blocks\AbstractBlockType;
 use App\Form\Type\DefaultSettingsBlockType;
 use App\Form\Type\LastPostsType;
-use App\Service\PostServiceInterface;
+use App\Service\Post\PostServiceInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;

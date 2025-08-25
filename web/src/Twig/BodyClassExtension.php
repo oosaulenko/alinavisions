@@ -2,7 +2,7 @@
 
 namespace App\Twig;
 
-use App\Service\BodyClassServiceInterface;
+use App\Service\BodyClass\BodyClassServiceInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 

@@ -5,7 +5,7 @@ namespace App\Blocks;
 use Adeliom\EasyGutenbergBundle\Blocks\AbstractBlockType;
 use App\Form\Type\ButtonGroupType;
 use App\Form\Type\DefaultSettingsBlockType;
-use App\Service\CategoryServiceInterface;
+use App\Service\Category\CategoryServiceInterface;
 use App\Service\Portfolio\PortfolioServiceInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
 use Symfony\Component\Asset\Package;

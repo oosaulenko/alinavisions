@@ -2,8 +2,7 @@
 
 namespace App\Utility;
 
-use App\Service\OptionServiceInterface;
-use App\Utility\LanguagesInterface;
+use App\Service\Option\OptionServiceInterface;
 
 class Languages implements LanguagesInterface
 {

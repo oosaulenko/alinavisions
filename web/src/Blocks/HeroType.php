@@ -5,7 +5,7 @@ namespace App\Blocks;
 use Adeliom\EasyGutenbergBundle\Blocks\AbstractBlockType;
 use App\Form\Type\ButtonGroupType;
 use App\Form\Type\DefaultSettingsBlockType;
-use App\Service\PostServiceInterface;
+use App\Service\Post\PostServiceInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
 use Looly\Media\Form\Type\MediaType;
 use Symfony\Component\Asset\Package;

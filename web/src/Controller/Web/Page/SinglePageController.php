@@ -2,8 +2,7 @@
 
 namespace App\Controller\Web\Page;
 
-use App\Form\CertificateType;
-use App\Service\PageServiceInterface;
+use App\Service\Page\PageServiceInterface;
 use App\Utility\AutoloadFormInterface;
 use App\Utility\DataEntityViewInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

@@ -8,9 +8,8 @@ use App\Entity\Package;
 use App\Entity\Page;
 use App\Entity\Photoshoot;
 use App\Entity\Portfolio;
-use App\Entity\Post;
 use App\Entity\User;
-use App\Service\OptionServiceInterface;
+use App\Service\Option\OptionServiceInterface;
 use App\Utility\LanguagesInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -46,15 +45,15 @@ class DashboardController extends AbstractDashboardController
         return Assets::new()
             ->addWebpackEncoreEntry('admin')
             ->addWebpackEncoreEntry('block-editor-container')
-            ->addCssFile('/bundles/loolymedia/css/looly-media-bundle.css')
-            ->addJsFile('/bundles/loolymedia/js/looly-media-bundle.js')
+//            ->addCssFile('/bundles/loolymedia/css/looly-media-bundle.css')
+//            ->addJsFile('/bundles/loolymedia/js/looly-media-bundle.js')
             ;
     }
 
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToCrud('Сторінки', 'fa fa-file-lines', Page::class);
-        yield MenuItem::linkToRoute('Медіа', 'fa fa-picture-o', 'looly_media_list');
+        yield MenuItem::linkToRoute('Медіа', 'fa fa-picture-o', 'admin_media_list');
 
         yield MenuItem::section('<hr style="margin: 0;">');
         yield MenuItem::linkToCrud('Портфоліо', 'fa fa-briefcase', Portfolio::class);
